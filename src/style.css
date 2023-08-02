@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+  }
+  .header {
+    padding: 10px;
+    background-color: #E88224;
+    border-bottom: 1px solid #e7e7e7;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .menu, .search, .login {
+    display: flex;
+    align-items: center;
+  }
+  .menu div, .search div, .login div {
+    margin-right: 5px;
+  }
+  .search-input {
+    display: none;
+    transition: all 0.5s ease-in-out;
+  }
+  .search-input.active {
+    display: block;
+  }
+  
+  /* Estilos para tablets (min-width: 768px) */
+  @media screen and (min-width: 768px) {
+    .header {
+      padding: 20px;
+    }
+    .menu div, .search div, .login div {
+      margin-right: 10px;
+    }
+  }
+  
+  /* Estilos para desktop (min-width: 1024px) */
+  @media screen and (min-width: 1024px) {
+    .header {
+      padding: 30px;
+    }
+    .menu div, .search div, .login div {
+      margin-right: 20px;
+    }
+  }
