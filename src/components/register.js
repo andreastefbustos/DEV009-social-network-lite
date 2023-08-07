@@ -4,17 +4,29 @@ import { register } from '../lib/services';
 export const registerPage = () => {
   const registerForm = document.createElement('div');
   registerForm.innerHTML = `
-    <form id="register-form" autocomplete="off">
-        <h1>Create an account</h1>
-        <p>Name</p>
-        <input type="name" id="register-name" placeholder="M******" required/>
-        <p>Email</p>
-        <input type="email" id="register-email" placeholder="example@gmail.com" required />
-        <p>Password</p>
-        <input type="password" id="register-password" placeholder="*********" required />
-        <button type="submit">Register</button>
-    </form>
-  `;
+  <div id="register">
+  <form id="register-form" autocomplete="off">
+      <h1>Create an account</h1>
+      
+      <div class="input-group">
+          <label for="register-name">Name</label>
+          <input type="name" id="register-name" placeholder="M******" required/>
+      </div>
+      
+      <div class="input-group">
+          <label for="register-email">Email</label>
+          <input type="email" id="register-email" placeholder="example@gmail.com" required />
+      </div>
+      
+      <div class="input-group">
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" placeholder="*********" required />
+      </div>
+      
+      <button type="submit">Register</button>
+  </form>
+</div>
+`;
 
   // Evento de envío para el formulario de registro
   registerForm.querySelector('#register-form').addEventListener('submit', () => {

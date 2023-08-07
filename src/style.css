@@ -1,45 +1,189 @@
-body {
-    margin: 0;
-  }
-  .header {
-    padding: 10px;
-    background-color: #E88224;
-    border-bottom: 1px solid #e7e7e7;
-    display: flex;
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+.header {
+  padding: 10px;
+  background-color: #E88224;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu, .search, .login {
+  display: flex;
+  align-items: center;
+}
+
+.menu div, .search div, .login div {
+  margin-right: 5px;
+}
+
+.search-input {
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.search-input.active {
+  display: block;
+}
+
+/* Estilos al login  */
+#login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     
+  height: 100vh;
+}
+
+#login-content {
+  order: 1;
+}
+
+#title-login{
+  color: #E88224;
+  text-align: center;
+  margin: 30px 0px;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 50%; 
+  margin: 0 auto; 
+}
+
+.email-password {
+  font-size: large;
+  margin-right: 10px; 
+}
+
+#login-form input[type="email"], 
+#login-form input[type="password"] {
+  flex: 1;
+  padding: 9px;
+  border: 0px solid #ccc;
+}
+
+#login-form button {
+  padding: 10px 15px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 30px;
+}
+
+#join {
+  text-align: center;
+  color: black; 
+}
+
+#join .highlight {
+  color: red; 
+  font-weight: bold; 
+  cursor: pointer;
+}
+
+#img-login {
+  margin: 20px auto 0; 
+  max-width: 100%; 
+  border-radius: 0 30% 0 0;
+  order: 2;
+}
+
+/* Estilos al registro */
+#register {
+  background-image: url('../img/register.png');
+  background-size: cover; /* Esto hará que la imagen cubra todo el espacio disponible */
+  background-repeat: no-repeat; /* Esto evitará que la imagen se repita */
+  background-position: center center; /* Esto centrará la imagen en el centro del contenedor */
+
+  /* Estos estilos son opcionales, pero pueden ayudarte a mejorar la apariencia: */
+  padding: 20px; /* Esto añadirá espacio alrededor del contenido del formulario */
+  display: flex; /* Esto asegurará que el formulario se centre verticalmente */
+  justify-content: center; /* Centra el formulario horizontalmente */
+  align-items: center; /* Centra el formulario verticalmente */
+  min-height: 100vh; /* Esto asegurará que el contenedor ocupe toda la altura de la vista */
+  box-sizing: border-box;
+}
+
+#register-form {
+  background-color: rgba(245, 245, 245, 0.5);
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 50%; 
+  margin: 0 auto; 
+}
+
+#register-form input[type="name"],
+#register-form input[type="email"], 
+#register-form input[type="password"] {
+  flex: 1;
+  padding: 9px;
+  border: 0px solid #ccc;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Añade un espacio entre cada grupo */
+}
+
+.input-group label {
+  margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
+}
+
+#register-form button {
+  padding: 10px 15px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 30px;
+}
+
+/* Estilos para Desktop*/
+@media screen and (min-width: 1024px) {
+  #login-container {
     flex-direction: row;
-    justify-content: space-between;
-  }
-  .menu, .search, .login {
+}
+
+#login-content, #img-login {
+    width: 50%; /* Divide la pantalla en dos mitades */
+}
+
+#login-content {
+    order: 2; /* Cambia el orden para que el contenido del login se muestre a la derecha */
     display: flex;
-    align-items: center;
-  }
-  .menu div, .search div, .login div {
-    margin-right: 5px;
-  }
-  .search-input {
-    display: none;
-    transition: all 0.5s ease-in-out;
-  }
-  .search-input.active {
-    display: block;
-  }
-  
-  /* Estilos para tablets (min-width: 768px) */
-  @media screen and (min-width: 768px) {
-    .header {
-      padding: 20px;
-    }
-    .menu div, .search div, .login div {
-      margin-right: 10px;
-    }
-  }
-  
-  /* Estilos para desktop (min-width: 1024px) */
-  @media screen and (min-width: 1024px) {
-    .header {
-      padding: 30px;
-    }
-    .menu div, .search div, .login div {
-      margin-right: 20px;
-    }
-  }
+    flex-direction: column;
+}
+
+#img-login {
+  order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
+  border-radius: 0;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
