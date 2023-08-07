@@ -29,7 +29,8 @@ export const userLogin = () => {
 `;
 
   // Evento de envío para el formulario de inicio de sesión
-  loginForm.querySelector('#login-form').addEventListener('submit', () => {
+  loginForm.querySelector('#login-form').addEventListener('submit', (event) => {
+    event.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
