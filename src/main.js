@@ -3,9 +3,6 @@ import { home } from './components/home.js';
 import { userLogin } from './components/login.js';
 import { registerPage } from './components/register.js';
 
-// home();
-// userLogin();
-
 const root = document.getElementById('root');
 
 // document.getElementById('search-icon').addEventListener('click', () => {

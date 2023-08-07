@@ -5,15 +5,28 @@ export const userLogin = () => {
   // Muestra el formulario de inicio de sesión
   const loginForm = document.createElement('div');
   loginForm.innerHTML = `
-        <form id="login-form" autocomplete="off">
-          <p>Email</p>
-          <input type="email" id="email" placeholder="example@gmail.com" required />
-          <p>Password</p>
-          <input type="password" id="password" placeholder="*********" required />
-          <button type="submit">Login</button>
-        </form>
-        <p id="join">Do not have an account? Join now</p>
-    `;
+  <div id="login-container">
+    <img id="img-login" src="../img/login.png" alt="login">
+    <div id="login-content">
+      <form id="login-form" autocomplete="off">
+        <h1 id="title-login">VitalDish</h1>
+
+        <div class="email-container">
+            <p class="email-password">Email</p>
+            <input type="email" id="email" placeholder="example@gmail.com" required />
+        </div>
+
+        <div class="password-container">
+            <p class="email-password">Password</p>
+            <input type="password" id="password" placeholder="*********" required />
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+      <p id="join">Do not have an account? <span class="highlight">Join now</span></p>
+  </div>
+</div>
+`;
 
   // Evento de envío para el formulario de inicio de sesión
   loginForm.querySelector('#login-form').addEventListener('submit', () => {
