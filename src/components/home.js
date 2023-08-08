@@ -54,7 +54,7 @@ const home = () => {
     if (isUserLoggedIn()) {
       a.innerHTML = 'Logout';
     } else {
-      a.innerHTML = 'Log In';
+      a.innerHTML = 'Login';
     }
   };
 
