@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-cycle
 import { userLogin } from './login';
+import { isUserLoggedIn, logout } from './sessionManager.js';
 
 const home = () => {
   const root = document.getElementById('root');
@@ -48,14 +50,30 @@ const home = () => {
   const a = document.createElement('a');
   a.id = 'login-link';
   a.href = '';
-  a.innerHTML = 'Log In';
+  a.innerHTML = 'Login';
 
-  a.addEventListener('click', (event) => { // Adjuntar evento aquí
+  const updateLoginLink = () => {
+    if (isUserLoggedIn()) {
+      a.innerHTML = 'Logout';
+    } else {
+      a.innerHTML = 'Log In';
+    }
+  };
+
+  updateLoginLink();
+
+  a.addEventListener('click', (event) => {
     event.preventDefault();
 
-    const loginForm = userLogin(); // Crea el formulario de inicio de sesión
-    root.innerHTML = ''; // Limpiar el nodo raíz
-    root.appendChild(loginForm); // Agrega el formulario a la raíz
+    if (isUserLoggedIn()) {
+      logout();
+      document.getElementById('root').innerHTML = ''; // Limpiamos el contenido anterior
+      document.getElementById('root').appendChild(home()); // Refrescamos la página home
+    } else {
+      const loginForm = userLogin();
+      root.innerHTML = '';
+      root.appendChild(loginForm);
+    }
   });
 
   login.appendChild(div4);

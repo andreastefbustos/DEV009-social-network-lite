@@ -1,5 +1,6 @@
 import { login, getLoggedInUser } from '../lib/services';
 import { registerPage } from './register';
+import { home } from './home';
 
 export const userLogin = () => {
   // Muestra el formulario de inicio de sesión
@@ -38,10 +39,9 @@ export const userLogin = () => {
     if (login(email, password)) {
       const loggedInUser = getLoggedInUser();
       console.log('Logged in user:', loggedInUser);
-      alert('User logged in successfully!');
-      // Aquí deberías redirigir al usuario a la página de inicio o donde sea necesario
+      document.getElementById('root').innerHTML = '';
+      document.getElementById('root').appendChild(home());
     } else {
-      // Si el inicio de sesión falla, muestra un mensaje de error
       alert('Invalid login. Please register if you do not have an account.');
     }
   });
