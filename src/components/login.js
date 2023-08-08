@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable import/no-cycle */
 import { login, getLoggedInUser } from '../lib/services';
 import { registerPage } from './register';
 import { home } from './home';

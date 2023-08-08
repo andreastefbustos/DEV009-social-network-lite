@@ -20,8 +20,7 @@ const home = () => {
   const div2 = document.createElement('div');
   div2.innerHTML = 'VitalDish';
 
-  nav.appendChild(div1);
-  nav.appendChild(div2);
+  nav.append(div1, div2);
 
   // Crear el div de search
   const search = document.createElement('div');
@@ -37,8 +36,7 @@ const home = () => {
   input.classList.add('search-input');
   input.placeholder = 'Search';
 
-  search.appendChild(div3);
-  search.appendChild(input);
+  search.append(div3, input);
 
   // Crear el div de login
   const login = document.createElement('div');
@@ -76,13 +74,10 @@ const home = () => {
     }
   });
 
-  login.appendChild(div4);
-  login.appendChild(a);
+  login.append(div4, a);
 
   // Se añaden todos los elementos al header
-  header.appendChild(nav);
-  header.appendChild(search);
-  header.appendChild(login);
+  header.append(nav, search, login);
 
   // Añade el header al cuerpo del documento
   homePage.appendChild(header);

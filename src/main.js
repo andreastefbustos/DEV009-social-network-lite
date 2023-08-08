@@ -2,6 +2,7 @@
 import { home } from './components/home.js';
 import { userLogin } from './components/login.js';
 import { registerPage } from './components/register.js';
+import { error } from './components/error.js';
 
 const root = document.getElementById('root');
 
@@ -18,6 +19,7 @@ const routes = [
   { path: '/', component: home },
   { path: '/login', component: userLogin },
   { path: '/register', component: registerPage },
+  { path: '/error', component: error },
 ];
 
 const defaultRoute = '/';
@@ -31,9 +33,18 @@ const navigateTo = (hash) => {
       route.path,
       window.location.origin + route.path,
     );
-    root.innerHTML = ''; // Esto vaciará el div 'root' antes de agregar el nuevo componente.
-    root.appendChild(route.component());
+    if (root.firstChild) {
+      root.removeChild(root.firstChild);
+    }
+    root.appendChild(route.component(navigateTo));
+  } else {
+    navigateTo('/error');
   }
 };
 
-navigateTo(window.localStorage.pathname || defaultRoute);
+window.onpopstate = () => {
+  console.log('hubo un cambio');
+  navigateTo(window.location.pathname);
+};
+
+navigateTo(window.location.pathname || defaultRoute);
