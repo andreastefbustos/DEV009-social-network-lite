@@ -14,8 +14,8 @@ html, body {
 
 #icon-menu {
   background-color: #ffffff;
-  border-radius: 50%;  /* Hace que el fondo sea redondo */
-  width: 40px;  /* Establece el tamaño del círculo. Ajusta según lo necesites */
+  border-radius: 50%;
+  width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;  /* Centra el ícono horizontalmente */
@@ -23,7 +23,7 @@ html, body {
 }
 
 #icon-menu .fa-bars {
-  color: black;  /* Hace que las líneas del ícono sean negras */
+  color: black;
 }
 
 .title-home {
@@ -42,7 +42,7 @@ html, body {
 
 .search {
   margin-left: auto; /* tomará todo el espacio disponible a la izquierda, empujando el contenedor de búsqueda (y, por lo tanto, la lupa y el input) hacia la derecha. */
-  border-right: 1px solid #000; /* Ajusta el color según lo necesites */
+  border-right: 1px solid #000;
   padding-right: 10px; /* Espacio entre la lupa y la línea */
   margin-right: 10px; /* Espacio entre la línea y el login */
 }
@@ -128,12 +128,10 @@ html, body {
   background-size: cover; /* Esto hará que la imagen cubra todo el espacio disponible */
   background-repeat: no-repeat; /* Esto evitará que la imagen se repita */
   background-position: center center; /* Esto centrará la imagen en el centro del contenedor */
-
-  /* Estos estilos son opcionales, pero pueden ayudarte a mejorar la apariencia: */
-  padding: 20px; /* Esto añadirá espacio alrededor del contenido del formulario */
-  display: flex; /* Esto asegurará que el formulario se centre verticalmente */
-  justify-content: center; /* Centra el formulario horizontalmente */
-  align-items: center; /* Centra el formulario verticalmente */
+  padding: 20px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
   min-height: 100vh; /* Esto asegurará que el contenedor ocupe toda la altura de la vista */
   box-sizing: border-box;
 }
@@ -198,15 +196,15 @@ html, body {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);  /* Fondo negro con opacidad del 50% */
-  pointer-events: none;  /* Asegura que el fondo no interfiera con el clic */
+  pointer-events: none;  /* Asegura que el fondo no interfiera con el click */
 }
 
 #customAlert .alert-content {
   position: relative;
   padding: 20px;
-  background-color: #fff;  /* Fondo blanco para el mensaje */
+  background-color: #fff;
   z-index: 1;  /* Asegura que el contenido está por encima del fondo */
-  border-radius: 5px;  /* Borde redondeado */
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Sombra alrededor del mensaje */
   width: 300px;  /* Ancho del mensaje */
   max-width: 80%;  /* Asegura que el mensaje no sea demasiado grande en pantallas pequeñas */
