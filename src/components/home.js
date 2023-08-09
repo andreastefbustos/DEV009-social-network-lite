@@ -34,6 +34,19 @@ const home = (navigateTo) => {
   input.classList.add('search-input');
   input.placeholder = 'Search';
 
+  // Asegura que el input esté oculto inicialmente.
+  input.style.display = 'none';
+
+  // Agrega el listener al ícono de la lupa
+  div3.addEventListener('click', () => {
+    if (input.style.display === 'none' || input.style.display === '') {
+      input.style.display = 'block';
+      input.focus(); // Opcional: pone el foco en el input cuando se muestra.
+    } else {
+      input.style.display = 'none';
+    }
+  });
+
   search.append(div3, input);
 
   // Crear el div de login

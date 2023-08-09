@@ -6,15 +6,6 @@ import { error } from './components/error.js';
 
 const root = document.getElementById('root');
 
-// document.getElementById('search-icon').addEventListener('click', () => {
-//   const searchInput = document.getElementById('search-input');
-//   if (searchInput.style.display === 'none' || searchInput.style.display === '') {
-//     searchInput.style.display = 'block';
-//   } else {
-//     searchInput.style.display = 'none';
-//   }
-// });
-
 const routes = [
   { path: '/', component: home },
   { path: '/login', component: userLogin },

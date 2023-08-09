@@ -4,7 +4,7 @@ html, body {
   overflow-x: hidden;
 }
 .header {
-  padding: 10px;
+  padding: 20px;
   background-color: #E88224;
   border-bottom: 1px solid #e7e7e7;
   display: flex;
@@ -21,13 +21,15 @@ html, body {
   margin-right: 5px;
 }
 
-.search-input {
-  display: none;
-  transition: all 0.5s ease-in-out;
+.search {
+  margin-left: auto; /* tomará todo el espacio disponible a la izquierda, empujando el contenedor de búsqueda (y, por lo tanto, la lupa y el input) hacia la derecha. */
+  border-right: 1px solid #000; /* Ajusta el color según lo necesites */
+  padding-right: 10px; /* Espacio entre la lupa y la línea */
+  margin-right: 10px; /* Espacio entre la línea y el login */
 }
 
-.search-input.active {
-  display: block;
+.login {
+  margin: 10px 10px; /* Ajusta este valor según lo necesites */
 }
 
 /* Estilos al login  */
