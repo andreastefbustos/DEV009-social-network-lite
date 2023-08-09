@@ -47,6 +47,27 @@ html, body {
   margin-right: 10px; /* Espacio entre la línea y el login */
 }
 
+.search-input {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px; 
+  background-color: rgba(255, 255, 255, 0.8); 
+  transition: all 0.3s ease; 
+  outline: none; 
+  width: 150px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.search-input:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.search-input:focus {
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
 .login {
   margin: 10px 10px;
 }
@@ -92,6 +113,7 @@ html, body {
   flex: 1;
   padding: 9px;
   border: 0px solid #ccc;
+  background-color: rgb(232, 240, 254);
 }
 
 #login-form button {
@@ -128,12 +150,15 @@ html, body {
   background-size: cover; /* Esto hará que la imagen cubra todo el espacio disponible */
   background-repeat: no-repeat; /* Esto evitará que la imagen se repita */
   background-position: center center; /* Esto centrará la imagen en el centro del contenedor */
-  padding: 20px;
   display: flex; 
   justify-content: center; 
   align-items: center;
   min-height: 100vh; /* Esto asegurará que el contenedor ocupe toda la altura de la vista */
   box-sizing: border-box;
+}
+
+#img-register {
+  display: none;  /* Estará oculto en dispositivos móviles */
 }
 
 #register-form {
@@ -143,8 +168,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center; 
-  width: 50%; 
-  margin: 0 auto; 
+  width: 50%;
 }
 
 #register-form input[type="name"],
@@ -153,6 +177,7 @@ html, body {
   flex: 1;
   padding: 9px;
   border: 0px solid #ccc;
+  background-color: rgb(232, 240, 254);
 }
 
 .input-group {
@@ -227,25 +252,55 @@ html, body {
 @media screen and (min-width: 1024px) {
   #login-container {
     flex-direction: row;
-}
+  }
 
-#login-content, #img-login {
+  #login-content, #img-login {
     width: 50%; /* Divide la pantalla en dos mitades */
-}
+  }
 
-#login-content {
+  #login-content {
     order: 2; /* Cambia el orden para que el contenido del login se muestre a la derecha */
     display: flex;
     flex-direction: column;
-}
+  }
 
-#img-login {
-  order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
-  border-radius: 0;
-  width: 50%;
-  height: 100%;
-  margin: 0;
-}
+  #img-login {
+    order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
+    border-radius: 0;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .search-input {
+    width: 200px; 
+  }
+
+  /* Estilos para el registro */
+  #register {
+    flex-direction: row;
+    background-image: none;  /* Removemos el fondo del contenedor de registro para pantallas grandes */
+  }
+
+  #register-form {
+    width: 50%;  /* Ocupará la mitad derecha de la pantalla */
+    order: 2; 
+  }
+
+  #img-register {
+    display: block;  /* Lo mostramos en pantallas grandes */
+    background-image: url('../img/register.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 50%;  /* Ocupará la mitad izquierda de la pantalla */
+    height: 100vh;
+    order: 1;
+  }
+
+  #register-form {
+    background-color: transparent;  /* Esto quitará el fondo en pantallas grandes */
+  }
 }
 
 

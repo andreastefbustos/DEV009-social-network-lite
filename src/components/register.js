@@ -6,7 +6,8 @@ export const registerPage = (navigateTo) => {
   const registerForm = document.createElement('div');
   registerForm.innerHTML = `
   <div id="register">
-  <form id="register-form" autocomplete="off">
+    <div id="img-register"></div>
+    <form id="register-form" autocomplete="off">
       <h1>Create an account</h1>
       
       <div class="input-group">
@@ -25,7 +26,7 @@ export const registerPage = (navigateTo) => {
       </div>
       
       <button type="submit">Register</button>
-  </form>
+   </form>
 </div>
 `;
 
