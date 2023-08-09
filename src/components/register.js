@@ -1,7 +1,8 @@
 import { register } from '../lib/services';
+import { showCustomAlert } from './showCustomAlert';
 
 // Función para mostrar la página de registro
-export const registerPage = () => {
+export const registerPage = (navigateTo) => {
   const registerForm = document.createElement('div');
   registerForm.innerHTML = `
   <div id="register">
@@ -29,17 +30,19 @@ export const registerPage = () => {
 `;
 
   // Evento de envío para el formulario de registro
-  registerForm.querySelector('#register-form').addEventListener('submit', () => {
+  registerForm.querySelector('#register-form').addEventListener('submit', (event) => {
+    event.preventDefault();
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
 
     // Intenta registrar al usuario
     if (register(email, password)) {
-      alert('User registered successfully!');
+      showCustomAlert('User registered successfully!');
+      navigateTo('/login');
       // Aquí deberías redirigir al usuario a la página de inicio o donde sea necesario
     } else {
       // Si el registro falla, muestra un mensaje de error
-      alert('An error occurred during registration');
+      showCustomAlert('An error occurred during registration');
     }
   });
 

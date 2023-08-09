@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/no-cycle */
-import { login, getLoggedInUser } from '../lib/services';
-import { registerPage } from './register';
-import { home } from './home';
+import { login } from '../lib/services';
+import { showCustomAlert } from './showCustomAlert';
+// import { getLoggedInUser } from '../lib/services';
 
-export const userLogin = () => {
+export const userLogin = (navigateTo) => {
   // Muestra el formulario de inicio de sesión
   const loginForm = document.createElement('div');
   loginForm.innerHTML = `
@@ -39,19 +39,19 @@ export const userLogin = () => {
 
     // Intenta iniciar sesión
     if (login(email, password)) {
-      const loggedInUser = getLoggedInUser();
-      console.log('Logged in user:', loggedInUser);
-      document.getElementById('root').innerHTML = '';
-      document.getElementById('root').appendChild(home());
+      // esto es para ver los usuarios que hicieron login
+      // const loggedInUser = getLoggedInUser();
+      // console.log('Logged in user:', loggedInUser);
+      navigateTo('/');
     } else {
-      alert('Invalid login. Please register if you do not have an account.');
+      showCustomAlert('Invalid login. Please register if you do not have an account.');
     }
   });
 
   // Evento de click para el enlace Join now
-  loginForm.querySelector('#join').addEventListener('click', () => {
-    document.getElementById('root').innerHTML = '';
-    document.getElementById('root').appendChild(registerPage());
+  loginForm.querySelector('#join').addEventListener('click', (event) => {
+    event.preventDefault();
+    navigateTo('/register');
   });
 
   return loginForm;

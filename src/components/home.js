@@ -1,9 +1,7 @@
 // eslint-disable-next-line import/no-cycle
-import { userLogin } from './login';
 import { isUserLoggedIn, logout } from './sessionManager.js';
 
-const home = () => {
-  const root = document.getElementById('root');
+const home = (navigateTo) => {
   const homePage = document.createElement('div');
 
   // Creando el header
@@ -48,7 +46,6 @@ const home = () => {
   const a = document.createElement('a');
   a.id = 'login-link';
   a.href = '';
-  a.innerHTML = 'Login';
 
   const updateLoginLink = () => {
     if (isUserLoggedIn()) {
@@ -65,12 +62,9 @@ const home = () => {
 
     if (isUserLoggedIn()) {
       logout();
-      document.getElementById('root').innerHTML = ''; // Limpiamos el contenido anterior
-      document.getElementById('root').appendChild(home()); // Refrescamos la página home
+      navigateTo('/');
     } else {
-      const loginForm = userLogin();
-      root.innerHTML = '';
-      root.appendChild(loginForm);
+      navigateTo('/login');
     }
   });
 
