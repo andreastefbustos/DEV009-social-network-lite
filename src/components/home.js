@@ -13,9 +13,11 @@ const home = (navigateTo) => {
   nav.classList.add('menu');
 
   const div1 = document.createElement('div');
+  div1.id = 'icon-menu';
   div1.innerHTML = '<i class="fa-solid fa-bars"></i>';
 
   const div2 = document.createElement('div');
+  div2.classList.add('title-home');
   div2.innerHTML = 'VitalDish';
 
   nav.append(div1, div2);

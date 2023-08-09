@@ -12,6 +12,25 @@ html, body {
   justify-content: space-between;
 }
 
+#icon-menu {
+  background-color: #ffffff;
+  border-radius: 50%;  /* Hace que el fondo sea redondo */
+  width: 40px;  /* Establece el tamaño del círculo. Ajusta según lo necesites */
+  height: 40px;
+  display: flex;
+  justify-content: center;  /* Centra el ícono horizontalmente */
+  align-items: center;  /* Centra el ícono verticalmente */
+}
+
+#icon-menu .fa-bars {
+  color: black;  /* Hace que las líneas del ícono sean negras */
+}
+
+.title-home {
+  font-size: x-large;
+  color: #ffffff;
+}
+
 .menu, .search, .login {
   display: flex;
   align-items: center;
@@ -29,7 +48,12 @@ html, body {
 }
 
 .login {
-  margin: 10px 10px; /* Ajusta este valor según lo necesites */
+  margin: 10px 10px;
+}
+
+#login-link {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* Estilos al login  */
