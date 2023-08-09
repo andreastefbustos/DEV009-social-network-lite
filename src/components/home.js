@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import { isUserLoggedIn, logout } from './sessionManager.js';
 
 const home = (navigateTo) => {

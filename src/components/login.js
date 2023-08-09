@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable import/no-cycle */
 import { login } from '../lib/services';
 import { showCustomAlert } from './showCustomAlert';
 // import { getLoggedInUser } from '../lib/services';
