@@ -1,5 +1,6 @@
-import { logout } from '../lib/services';
+import { logout } from '../lib/index';
 
+// doble exclamación devuelve un booleano
 const isUserLoggedIn = () => !!localStorage.getItem('user');
 
 const home = (navigateTo) => {
