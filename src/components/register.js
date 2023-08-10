@@ -36,18 +36,6 @@ export const registerPage = (navigateTo) => {
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
 
-    // Intenta registrar al usuario
-    // if (register(email, password)) {
-    //   showCustomAlert('User registered successfully!');
-    //   navigateTo('/login');
-    //   // Aquí deberías redirigir al usuario a la página de inicio o donde sea necesario
-    // } else if (error.message === 'User already exists') {
-    //   showCustomAlert('This user is already registered. Please try logging in.');
-    // } else {
-    //   // Si el registro falla, muestra un mensaje de error
-    //   showCustomAlert('An error occurred during registration');
-    // }
-
     try {
       if (register(email, password)) {
         showCustomAlert('User registered successfully!');
