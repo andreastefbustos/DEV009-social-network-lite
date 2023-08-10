@@ -2,7 +2,11 @@
 
 import {
 // createPost, deletePost, editPost, getPosts, init, login, register, getLoggedInUser,
+  login as userLogin,
+  register as registerPage,
 } from './services';
 
-export const myFunction = () => {
-};
+const login = (email, password) => userLogin(email, password);
+const register = (email, password) => registerPage(email, password);
+
+export { login, register };

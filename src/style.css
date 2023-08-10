@@ -111,19 +111,16 @@ html, body {
   background-color: #f5f5f5;
 }
 
+/* Estilos a los li */
 .sidebar-menu li {
   list-style-type: none;
   padding: 10px 15px;
   border-bottom: 1px solid #eee;
-}
-
-/* Estilos a los li */
-ul > li {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-ul > li:hover {
+li:hover {
   transform: scale(1.1);
 }
 
@@ -334,7 +331,8 @@ ul > li:hover {
 
   #register-form {
     width: 50%;  /* Ocupará la mitad derecha de la pantalla */
-    order: 2; 
+    order: 2;
+    background-color: transparent;  /* Esto quitará el fondo en pantallas grandes */
   }
 
   #img-register {
@@ -346,10 +344,6 @@ ul > li:hover {
     width: 50%;  /* Ocupará la mitad izquierda de la pantalla */
     height: 100vh;
     order: 1;
-  }
-
-  #register-form {
-    background-color: transparent;  /* Esto quitará el fondo en pantallas grandes */
   }
 }
 

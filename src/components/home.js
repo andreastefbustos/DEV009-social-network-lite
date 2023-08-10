@@ -1,4 +1,6 @@
-import { isUserLoggedIn, logout } from './sessionManager.js';
+import { logout } from '../lib/services';
+
+const isUserLoggedIn = () => !!localStorage.getItem('user');
 
 const home = (navigateTo) => {
   const homePage = document.createElement('div');

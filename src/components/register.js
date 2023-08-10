@@ -1,4 +1,4 @@
-import { register } from '../lib/services';
+import { register } from '../lib/index';
 import { showCustomAlert } from './showCustomAlert';
 
 // Función para mostrar la página de registro
@@ -37,13 +37,36 @@ export const registerPage = (navigateTo) => {
     const password = document.getElementById('register-password').value;
 
     // Intenta registrar al usuario
-    if (register(email, password)) {
-      showCustomAlert('User registered successfully!');
-      navigateTo('/login');
-      // Aquí deberías redirigir al usuario a la página de inicio o donde sea necesario
-    } else {
-      // Si el registro falla, muestra un mensaje de error
-      showCustomAlert('An error occurred during registration');
+    // if (register(email, password)) {
+    //   showCustomAlert('User registered successfully!');
+    //   navigateTo('/login');
+    //   // Aquí deberías redirigir al usuario a la página de inicio o donde sea necesario
+    // } else if (error.message === 'User already exists') {
+    //   showCustomAlert('This user is already registered. Please try logging in.');
+    // } else {
+    //   // Si el registro falla, muestra un mensaje de error
+    //   showCustomAlert('An error occurred during registration');
+    // }
+
+    try {
+      if (register(email, password)) {
+        showCustomAlert('User registered successfully!');
+        navigateTo('/login');
+      }
+    } catch (error) {
+      switch (error.message) {
+        case 'Invalid email':
+          showCustomAlert('Please enter a valid email.');
+          break;
+        case 'Password must be at least 6 characters long':
+          showCustomAlert('Password must be at least 6 characters long.');
+          break;
+        case 'User already exists':
+          showCustomAlert('This user is already registered. Please try logging in.');
+          break;
+        default:
+          showCustomAlert('An error occurred during registration');
+      }
     }
   });
 
