@@ -20,6 +20,7 @@ html, body {
   display: flex;
   justify-content: center;  /* Centra el ícono horizontalmente */
   align-items: center;  /* Centra el ícono verticalmente */
+  cursor: pointer;
 }
 
 #icon-menu .fa-bars {
@@ -45,6 +46,16 @@ html, body {
   border-right: 1px solid #000;
   padding-right: 10px; /* Espacio entre la lupa y la línea */
   margin-right: 10px; /* Espacio entre la línea y el login */
+}
+
+/* Estilos para el icono de busqueda */
+.search-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Transición suave al cambiar el tamaño */
+}
+
+.search-icon:hover {
+  transform: scale(1.9); /* Aumenta el tamaño en un 10% */
 }
 
 .search-input {
@@ -76,6 +87,36 @@ html, body {
   color: #ffffff;
   text-decoration: none;
 }
+
+/* Estilos para el manejo del aside-bar-menu */
+.sidebar-menu {
+  position: fixed; /* Posición fija */
+  top: 0;
+  left: -300px; /* Esto lo coloca fuera de la pantalla por defecto */
+  width: 300px; /* Ancho del menú */
+  height: 100%;
+  background-color: #ffffff;
+  overflow-y: auto; /* Si el contenido excede la altura, será desplazable */
+  transition: 0.3s; /* Animación suave al aparecer */
+  z-index: 1000; /* Se asegura de que esté por encima de otros elementos */
+}
+
+.sidebar-menu.open {
+  left: 0; /* Esto lo mueve a su posición visible */
+}
+
+.sidebar-menu .menu-title {
+  font-weight: bold;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+}
+
+.sidebar-menu li {
+  list-style-type: none;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
 
 /* Estilos al login  */
 #login-container {
