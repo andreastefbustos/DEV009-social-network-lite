@@ -1,4 +1,4 @@
-const showCustomAlert = (message) => {
+export const showCustomAlert = (message) => {
   const alertDiv = document.createElement('div');
   alertDiv.setAttribute('id', 'customAlert');
 
@@ -20,5 +20,3 @@ const showCustomAlert = (message) => {
 
   document.body.appendChild(alertDiv);
 };
-
-export { showCustomAlert };
