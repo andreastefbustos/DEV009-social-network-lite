@@ -295,6 +295,29 @@ li:hover {
   opacity: 0.7;
 }
 
+/* Estilos para las recetas */
+.recipe {
+  display: inline-block;
+  margin: 10px;
+  box-sizing: border-box; /* Esto hará que el padding y el borde no se sumen al ancho total */
+}
+
+.recipe img {
+  width: 364px;
+  height: 242px;
+  display: block;
+  max-width: 100%;
+}
+
+.recipes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas con el mismo ancho */
+  gap: 40px; /* Espacio entre recetas; ajusta según lo que necesites */
+  justify-items: center; /* Centra los elementos horizontalmente en cada celda */
+  width: 80%; /* Ocupa el 80% del ancho de su contenedor */
+  margin: 0 auto; /* Centra horizontalmente .recipes-container */
+}
+
 /* Estilos para Desktop*/
 @media screen and (min-width: 1024px) {
   #login-container {
