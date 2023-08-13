@@ -1,7 +1,8 @@
 import { createMenu } from './menu';
 import { createSearchBar } from './searchBar';
 import { createLoginArea } from './loginArea';
-import { recipes, createRecipeElement } from './recipes';
+import { recipes } from './data_recipes';
+import { createRecipeElement } from './recipesUI';
 
 export const home = (navigateTo) => {
   const homePage = document.createElement('div');
