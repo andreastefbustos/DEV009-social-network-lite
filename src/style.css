@@ -311,11 +311,20 @@ li:hover {
 
 .recipes-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas con el mismo ancho */
+  grid-template-columns: 1fr; /* Una sola columna por defecto */
   gap: 40px; /* Espacio entre recetas; ajusta según lo que necesites */
   justify-items: center; /* Centra los elementos horizontalmente en cada celda */
   width: 80%; /* Ocupa el 80% del ancho de su contenedor */
-  margin: 0 auto; /* Centra horizontalmente .recipes-container */
+  margin: 40px auto; /* Centra horizontalmente .recipes-container */
+}
+
+.fa-heart {
+  color: #000; /* Color predeterminado (por ejemplo, negro o el que quieras) */
+}
+
+.fa-heart.active {
+  color: red; /* Color cuando ha sido seleccionado */
+  font-weight: 900; /* Esto cambiará el ícono regular al sólido en Font Awesome 5+ */
 }
 
 /* Estilos para Desktop*/
@@ -367,6 +376,11 @@ li:hover {
     width: 50%;  /* Ocupará la mitad izquierda de la pantalla */
     height: 100vh;
     order: 1;
+  }
+
+  /* Estilos para las imagenes de las recetas */
+  .recipes-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas con el mismo ancho */
   }
 }
 

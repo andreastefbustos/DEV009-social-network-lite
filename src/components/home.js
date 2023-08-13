@@ -16,7 +16,7 @@ export const home = (navigateTo) => {
   recipesContainer.classList.add('recipes-container');
 
   recipes.forEach((recipe) => {
-    const recipeElement = createRecipeElement(recipe);
+    const recipeElement = createRecipeElement(recipe, navigateTo);
     recipesContainer.appendChild(recipeElement);
   });
 
