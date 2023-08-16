@@ -319,7 +319,8 @@ html, body {
 }
 
 .fa-heart {
-  color: #000; /* Color predeterminado (por ejemplo, negro o el que quieras) */
+  color: #000;
+  cursor: pointer;
 }
 
 .fa-heart.active {
@@ -379,6 +380,10 @@ html, body {
   background-color: #0056b3; /* Oscurece el color de fondo cuando se pasa el mouse por encima */
 }
 
+.fa-comment {
+  cursor: pointer;
+}
+
 /* Estilos para el diseño del modal de las recetas */
 .recipe-modal {
   position: fixed;
@@ -396,9 +401,11 @@ html, body {
 .modal-content {
   width: 70%;
   max-width: 500px;
+  max-height: 80vh; /* 80% de la altura de la ventana */
   padding: 20px;
   background-color: white;
   position: relative;
+  overflow-y: auto;
 }
 
 .close-botton-modal {

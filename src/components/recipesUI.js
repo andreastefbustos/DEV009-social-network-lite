@@ -14,6 +14,7 @@ export const createRecipeElement = (recipe) => {
   // Titulo de la receta
   const titleElement = document.createElement('h2');
   titleElement.textContent = recipe.title;
+  titleElement.style.cursor = 'pointer';
 
   titleElement.addEventListener('click', () => {
     createRecipeModal(recipe);

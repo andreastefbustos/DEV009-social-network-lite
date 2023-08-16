@@ -19,8 +19,24 @@ export const recipes = [
   {
     id: 2,
     imageUrl: '../img/recipes/pasta-cremosa.png',
-    title: 'Pasta cremosa',
+    title: 'Pasta de zucchini con salda de aguacate y atún',
     likes: [],
+    ingredients: [
+      '2 zucchinis (calabacín, zapallo) grandes, picado en bastones pequeños, si tienes “spiralizer”',
+      '1 manojo de cilantro',
+      '1 trozo de aguacate aprox. de 120-150 grs',
+      '3 cucharadas de yogurt griego plain',
+      'Sal y pimienta al gusto',
+      'Ajo en polvo',
+      '1 lata de atún al agua (140 gr aprox.)',
+      '1 cucharadita de aceite de oliva extra virgen',
+    ],
+    steps: [
+      'En la licuadora o procesador de alimentos mezclar: cilantro, aguacate, yogur griego, sal, pimienta y ajo en polvo.',
+      'En un sartén precalentado agregar la cucharada de aceite de oliva extra virgen y cocinar el atún previamente escurrido, eliminar bien el agua.',
+      'Agregamos la salsa hecha en el procesador, mezclar bien y dejar cocinar por 2 minutos.',
+      'Agregar el Zucchini, bajamos el fuego y por unos 2 minutos más (no más que eso, porque el zucchini bota mucha agua), mezclar y cocinar con junto con la salsa, y está listo para servir.',
+    ],
   },
   {
     id: 3,

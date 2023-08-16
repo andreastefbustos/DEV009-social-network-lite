@@ -11,12 +11,14 @@ export const createRecipeModal = (recipe) => {
     content.className = 'modal-content';
 
     // Crear el boton de cerrar (x) y su evento
-    const closeButton = document.createElement('span');
-    closeButton.className = 'close-botton-modal';
-    closeButton.innerHTML = 'X';
-    closeButton.addEventListener('click', () => {
+    const closeModalIcon = document.createElement('i');
+    closeModalIcon.className = 'close-botton-modal fa-solid fa-xmark';
+    closeModalIcon.addEventListener('click', () => {
       document.body.removeChild(modal);
     });
+
+    const ingredientTitle = document.createElement('h1');
+    ingredientTitle.textContent = 'Ingredientes';
 
     // Contenido para los ingredientes
     const ingredientsList = document.createElement('ul');
@@ -26,6 +28,9 @@ export const createRecipeModal = (recipe) => {
       ingredientItem.textContent = ingredient;
       ingredientsList.appendChild(ingredientItem);
     });
+
+    const stepTitle = document.createElement('h1');
+    stepTitle.textContent = 'Preparación';
 
     // Paso a paso preparacion de la receta
     const stepsList = document.createElement('ol');
@@ -37,7 +42,7 @@ export const createRecipeModal = (recipe) => {
     });
 
     // Agregar las listas al contenido del modal
-    content.append(closeButton, ingredientsList, stepsList);
+    content.append(closeModalIcon, ingredientTitle, ingredientsList, stepTitle, stepsList);
     modal.append(content);
 
     // Agregar el modal al body
