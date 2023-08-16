@@ -1,20 +1,23 @@
-import { createPost, getLoggedInUser } from '../lib/index';
+import { isUserLoggedIn } from './auth';
+import { openCommentModal } from './createPostModal';
 
-export const handleCommentForRecipes = (recipe, likeContainer) => {
-  const commentIcon = document.createElement('i');
-  commentIcon.className = 'fa-regular fa-comment'; // Asumiendo que usas FontAwesome y esta es la clase para la nube de comentario.
+export const handleCommentForRecipes = (recipe, recipeElement) => {
+  if (isUserLoggedIn()) {
+    const containerPost = document.createElement('div');
+    containerPost.className = 'containerCreatePost';
 
-  commentIcon.addEventListener('click', () => {
-    // Aquí manejas la lógica para crear un post.
-    // Puede ser un prompt o algo más sofisticado para obtener el contenido del comentario.
-    const content = prompt('Ingresa tu comentario:');
+    const commentIcon = document.createElement('i');
+    commentIcon.className = 'fa-regular fa-comment';
 
-    if (content) {
-      const userEmail = getLoggedInUser().email;
-      createPost(content, userEmail);
-      alert('Comentario agregado!');
-    }
-  });
+    const commentAll = document.createElement('p');
+    commentAll.className = 'commentPostAll';
+    commentAll.textContent = 'View all comments';
 
-  likeContainer.append(commentIcon);
+    commentIcon.addEventListener('click', () => {
+      openCommentModal();
+    });
+
+    containerPost.append(commentIcon, commentAll);
+    recipeElement.append(containerPost);
+  }
 };
