@@ -120,7 +120,7 @@ html, body {
   transition: transform 0.3s ease;
 }
 
-li:hover {
+.category-item:hover {
   transform: scale(1.1);
 }
 
@@ -401,11 +401,12 @@ li:hover {
   position: relative;
 }
 
-.close-button {
+.close-botton-modal {
   position: absolute;
   right: 15px;
   top: 5px;
   cursor: pointer;
+  color: red;
 }
 
 /* Estilos para Desktop*/
