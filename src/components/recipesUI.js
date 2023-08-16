@@ -1,4 +1,5 @@
 import { handleCommentForRecipes } from './commentHandler';
+import { createRecipeModal } from './createRecipeModal';
 import { handleLikesForRecipe } from './likeHandler';
 
 export const createRecipeElement = (recipe) => {
@@ -13,6 +14,10 @@ export const createRecipeElement = (recipe) => {
   // Titulo de la receta
   const titleElement = document.createElement('h2');
   titleElement.textContent = recipe.title;
+
+  titleElement.addEventListener('click', () => {
+    createRecipeModal(recipe);
+  });
 
   recipeElement.append(img, titleElement);
 

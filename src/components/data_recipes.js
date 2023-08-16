@@ -4,6 +4,17 @@ export const recipes = [
     imageUrl: '../img/recipes/ensalada-alkalina.png',
     title: 'Ensala Alkalina',
     likes: 0,
+    ingredients: [
+      '1 Pepino pelado y picado en cubitos',
+      '1 Tomate regular picado en cuadros o 1⁄2 taza de tomaticos cherry picados',
+      'Aguacate (Palta) picado',
+      '1⁄2 cebolla',
+      '1 taza de garbanzos enlatados. (Puedes sustituir los garbanzos por cualquier otra opción de legumbres como lentejas, frijoles etc...)',
+      ' 1 cucharada de aceite de oliva, el jugo de 1 limón, sal al gusto.',
+    ],
+    steps: [
+      'Mezclar todos los ingredientes junto con el aderezo y listo.',
+    ],
   },
   {
     id: 2,
