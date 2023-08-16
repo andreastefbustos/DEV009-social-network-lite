@@ -406,6 +406,7 @@ html, body {
   background-color: white;
   position: relative;
   overflow-y: auto;
+  border-radius: 10px;
 }
 
 .close-botton-modal {
