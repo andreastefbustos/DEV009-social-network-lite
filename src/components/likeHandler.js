@@ -10,6 +10,10 @@ export const handleLikesForRecipe = (recipe, recipeElement) => {
     const likeButton = document.createElement('i');
     likeButton.className = 'fa-regular fa-heart'; // Clase para el corazon de FontAwesome
 
+    const likeContainer = document.createElement('div');
+    likeContainer.style.display = 'flex';
+    likeContainer.style.flexDirection = 'column';
+
     // Obtener todos los likes de los usuarios
     const initialAllLikes = JSON.parse(localStorage.getItem('recipeLikes')) || {};
 
@@ -43,8 +47,10 @@ export const handleLikesForRecipe = (recipe, recipeElement) => {
       }
       // Guardar de nuevo todos los likes
       localStorage.setItem('recipeLikes', JSON.stringify(currentAllLikes));
-      likesCount.textContent = recipe.likes;
+      likesCount.textContent = recipe.likes === 1 ? '1 like' : `${recipe.likes} likes`;
     });
-    recipeElement.append(likeButton, likesCount);
+    likeContainer.appendChild(likeButton);
+    likeContainer.appendChild(likesCount);
+    recipeElement.appendChild(likeContainer);
   }
 };

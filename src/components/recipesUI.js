@@ -1,3 +1,4 @@
+import { handleCommentForRecipes } from './commentHandler';
 import { handleLikesForRecipe } from './likeHandler';
 
 export const createRecipeElement = (recipe) => {
@@ -16,6 +17,7 @@ export const createRecipeElement = (recipe) => {
   recipeElement.append(img, titleElement);
 
   handleLikesForRecipe(recipe, recipeElement);
+  handleCommentForRecipes(recipe, recipeElement);
 
   return recipeElement;
 };
