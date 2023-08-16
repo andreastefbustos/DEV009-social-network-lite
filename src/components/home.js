@@ -16,6 +16,15 @@ export const home = (navigateTo) => {
   const recipesContainer = document.createElement('div');
   recipesContainer.classList.add('recipes-container');
 
+  // Cargar los likes desde localStorage antes de crear el elemento de receta
+  recipes.forEach((recipe) => {
+    const likesFromLocalStorage = JSON.parse(localStorage.getItem(`recipeLikes_${recipe.id}`));
+    if (likesFromLocalStorage) {
+      recipe.likes = likesFromLocalStorage;
+    }
+  });
+
+  // Ahora que las recetas tienen la cantidad correcta de likes, las añadimos al DOM
   recipes.forEach((recipe) => {
     const recipeElement = createRecipeElement(recipe, navigateTo);
     recipesContainer.appendChild(recipeElement);
