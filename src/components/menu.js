@@ -11,17 +11,17 @@ export const createMenu = () => {
   asideMenu.innerHTML = `
   <h1 class="menu-title">Flavors</h1>
   <ul>
-    <li id='sweet'>Sweet</li>
-    <li id='salty'>Salty</li>
-    <li id='sweet-salty'>Sweet&Salty</li>
+    <li id='sweet' class='category-item'>Sweet</li>
+    <li id='salty' class='category-item'>Salty</li>
+    <li id='sweet-salty' class='category-item'>Sweet&Salty</li>
   </ul>
 
   <h1 class="menu-title">Food Time</h1>
   <ul>
-    <li id='breakfast'>Breakfast</li>
-    <li id='lunch'>Lunch</li>
-    <li id='dinner'>Dinner</li>
-    <li id='snack'>Snack</li>
+    <li id='breakfast' class='category-item'>Breakfast</li>
+    <li id='lunch' class='category-item'>Lunch</li>
+    <li id='dinner' class='category-item'>Dinner</li>
+    <li id='snack' class='category-item'>Snack</li>
   </ul>
   `;
 
