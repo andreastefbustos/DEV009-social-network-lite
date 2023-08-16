@@ -34,4 +34,18 @@ export const openCommentModal = () => {
 
   // Agregar el modal al body
   document.body.append(modal);
+
+  // Función para cerrar el modal
+  const closeModal = () => {
+    document.body.removeChild(modal);
+  };
+
+  // Escuchar clics en el modal
+  modal.addEventListener('click', (e) => {
+    // Si el clic fue directamente en el modal (y no en alguno de sus hijos),
+    // significa que el usuario hizo clic fuera del contenido del modal
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
 };
