@@ -19,7 +19,7 @@ export const recipes = [
   {
     id: 2,
     imageUrl: '../img/recipes/pasta-cremosa.png',
-    title: 'Pasta de zucchini con salda de aguacate y atún',
+    title: 'Pasta de zucchini con atún',
     likes: [],
     ingredients: [
       '2 zucchinis (calabacín, zapallo) grandes, picado en bastones pequeños, si tienes “spiralizer”',

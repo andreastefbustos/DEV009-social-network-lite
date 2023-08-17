@@ -332,6 +332,19 @@ html, body {
   margin: 0;
 }
 
+.title-recipe {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* Estilos para los iconos de Likes y Comments */
+.icons-container-likes-comments {
+  display: flex;
+  align-items: start;  /* Alinea los ítems al inicio del contenedor. */
+  gap: 15px;  /* Espacio entre el corazón y el comentario. */
+  margin-bottom: 10px;
+}
+
 /* Estilos para el modal de crear un post */
 .comment-modal {
   position: fixed;

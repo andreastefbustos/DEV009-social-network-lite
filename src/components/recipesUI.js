@@ -1,6 +1,5 @@
-import { handleCommentForRecipes } from './commentHandler';
 import { createRecipeModal } from './createRecipeModal';
-import { handleLikesForRecipe } from './likeHandler';
+import { handleInteractionForRecipe } from './handleInteraction';
 
 export const createRecipeElement = (recipe) => {
   const recipeElement = document.createElement('div');
@@ -13,8 +12,8 @@ export const createRecipeElement = (recipe) => {
 
   // Titulo de la receta
   const titleElement = document.createElement('h2');
+  titleElement.classList.add('title-recipe');
   titleElement.textContent = recipe.title;
-  titleElement.style.cursor = 'pointer';
 
   titleElement.addEventListener('click', () => {
     createRecipeModal(recipe);
@@ -22,8 +21,7 @@ export const createRecipeElement = (recipe) => {
 
   recipeElement.append(img, titleElement);
 
-  handleLikesForRecipe(recipe, recipeElement);
-  handleCommentForRecipes(recipe, recipeElement);
+  handleInteractionForRecipe(recipe, recipeElement);
 
   return recipeElement;
 };
