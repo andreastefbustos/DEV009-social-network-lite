@@ -1,6 +1,7 @@
 import { isUserLoggedIn } from './auth';
 import { getLoggedInUser } from '../lib/index';
 import { openCommentModal } from './createPostModal';
+import { openCommentsModal } from './createCommentsModal';
 
 export const handleInteractionForRecipe = (recipe, recipeElement) => {
   if (isUserLoggedIn()) {
@@ -45,6 +46,10 @@ export const handleInteractionForRecipe = (recipe, recipeElement) => {
     const commentAll = document.createElement('p');
     commentAll.className = 'commentPostAll';
     commentAll.textContent = 'View all comments';
+
+    commentAll.addEventListener('click', () => {
+      openCommentsModal(recipe);
+    });
 
     // Container para ambos Icon likes y comments
     const iconsContainer = document.createElement('div');
