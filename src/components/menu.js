@@ -1,6 +1,19 @@
 import { recipes } from './data_recipes';
 import { createRecipeElement } from './recipesUI';
 
+const filterCategoryRecipe = (property, value) => {
+  const categoryRecipe = recipes.filter((recipe) => recipe[property] === value);
+  const recipesContainer = document.getElementsByClassName('recipes-container')[0];
+  while (recipesContainer.firstChild) {
+    recipesContainer.removeChild(recipesContainer.lastChild);
+  }
+
+  categoryRecipe.forEach((element) => {
+    const filterRecipe = createRecipeElement(element);
+    recipesContainer.appendChild(filterRecipe);
+  });
+};
+
 export const createMenu = () => {
   const nav = document.createElement('nav');
   nav.classList.add('menu');
@@ -47,19 +60,41 @@ export const createMenu = () => {
     }
   });
 
+  // Filtros por flavors
   const categoryFlavorsSweet = document.querySelector('#sweet');
   categoryFlavorsSweet.addEventListener('click', () => {
-    const sweetRecipe = recipes.filter((recipe) => recipe.flavors === 'Sweet');
-    const recipesContainer = document.getElementsByClassName('recipes-container')[0];
-    while (recipesContainer.firstChild) {
-      recipesContainer.removeChild(recipesContainer.lastChild);
-    }
+    filterCategoryRecipe('flavors', 'Sweet');
+  });
 
-    sweetRecipe.forEach((element) => {
-      const filterRecipe = createRecipeElement(element);
-      console.log(recipesContainer);
-      recipesContainer.appendChild(filterRecipe);
-    });
+  const categoryFlavorsSalty = document.querySelector('#salty');
+  categoryFlavorsSalty.addEventListener('click', () => {
+    filterCategoryRecipe('flavors', 'Salty');
+  });
+
+  const categoryFlavorsSweetSalty = document.querySelector('#sweet-salty');
+  categoryFlavorsSweetSalty.addEventListener('click', () => {
+    filterCategoryRecipe('flavors', 'Sweet&Salty');
+  });
+
+  // Filtros por meal time
+  const categoryMealTimeBreakfast = document.querySelector('#breakfast');
+  categoryMealTimeBreakfast.addEventListener('click', () => {
+    filterCategoryRecipe('mealTime', 'Breakfast');
+  });
+
+  const categoryMealTimeLunch = document.querySelector('#lunch');
+  categoryMealTimeLunch.addEventListener('click', () => {
+    filterCategoryRecipe('mealTime', 'Lunch');
+  });
+
+  const categoryMealTimeDinner = document.querySelector('#dinner');
+  categoryMealTimeDinner.addEventListener('click', () => {
+    filterCategoryRecipe('mealTime', 'Dinner');
+  });
+
+  const categoryMealTimeSnack = document.querySelector('#snack');
+  categoryMealTimeSnack.addEventListener('click', () => {
+    filterCategoryRecipe('mealTime', 'Snack');
   });
 
   return {
@@ -67,7 +102,3 @@ export const createMenu = () => {
     asideMenuElement: asideMenu,
   };
 };
-
-// const mealTime = recipes.filter(
-// (recipe) => recipe.mealTime === 'Breakfast' ||
-// recipe.mealTime === 'Lunch' || recipe.mealTime === 'Dinner' || recipe.mealTime === 'Snack');
