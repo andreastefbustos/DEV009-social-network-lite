@@ -1,3 +1,20 @@
+import { recipes } from './data_recipes';
+import { createRecipeElement } from './recipesUI';
+
+const displayFilteredRecipes = (filteredRecipes) => {
+  const recipesContainer = document.getElementsByClassName('recipes-container')[0];
+  while (recipesContainer.firstChild) {
+    recipesContainer.removeChild(recipesContainer.lastChild);
+  }
+
+  filteredRecipes.forEach((recipe) => {
+    const recipeElement = createRecipeElement(recipe);
+    recipesContainer.appendChild(recipeElement);
+  });
+};
+
+const normalizeString = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
 export const createSearchBar = () => {
   const search = document.createElement('div');
   search.classList.add('search');
@@ -10,7 +27,7 @@ export const createSearchBar = () => {
   input.type = 'search';
   input.id = 'search-input';
   input.classList.add('search-input');
-  input.placeholder = 'Search';
+  input.placeholder = 'Search...';
 
   // Asegura que el input esté oculto inicialmente.
   input.style.display = 'none';
@@ -23,6 +40,14 @@ export const createSearchBar = () => {
     } else {
       input.style.display = 'none';
     }
+  });
+
+  input.addEventListener('input', (event) => {
+    const query = normalizeString(event.target.value);
+    const filteredRecipes = recipes.filter(
+      (recipe) => normalizeString(recipe.title).includes(query),
+    );
+    displayFilteredRecipes(filteredRecipes);
   });
 
   search.append(div3, input);

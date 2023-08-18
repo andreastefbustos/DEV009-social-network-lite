@@ -2,7 +2,7 @@ export const recipes = [
   {
     id: 1,
     imageUrl: '../img/recipes/ensalada-alkalina.png',
-    title: 'Ensala Alkalina',
+    title: 'Ensalada Alkalina',
     likes: [],
     ingredients: [
       '1 Pepino pelado y picado en cubitos',
