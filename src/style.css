@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   height: 100%;
   overflow-x: hidden;
+  padding-top: 30px;
 }
 .header {
   padding: 20px;
@@ -10,6 +11,11 @@ html, body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; /* Esto asegura que el header se extienda a lo ancho de la ventana del navegador */
+  z-index: 1000; /* Esto es para asegurarte de que el header siempre esté en la parte superior de otros elementos */
 }
 
 #icon-menu {

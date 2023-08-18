@@ -64,37 +64,44 @@ export const createMenu = () => {
   const categoryFlavorsSweet = document.querySelector('#sweet');
   categoryFlavorsSweet.addEventListener('click', () => {
     filterCategoryRecipe('flavors', 'Sweet');
+    asideMenu.classList.remove('open');
   });
 
   const categoryFlavorsSalty = document.querySelector('#salty');
   categoryFlavorsSalty.addEventListener('click', () => {
     filterCategoryRecipe('flavors', 'Salty');
+    asideMenu.classList.remove('open');
   });
 
   const categoryFlavorsSweetSalty = document.querySelector('#sweet-salty');
   categoryFlavorsSweetSalty.addEventListener('click', () => {
     filterCategoryRecipe('flavors', 'Sweet&Salty');
+    asideMenu.classList.remove('open');
   });
 
   // Filtros por meal time
   const categoryMealTimeBreakfast = document.querySelector('#breakfast');
   categoryMealTimeBreakfast.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Breakfast');
+    asideMenu.classList.remove('open');
   });
 
   const categoryMealTimeLunch = document.querySelector('#lunch');
   categoryMealTimeLunch.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Lunch');
+    asideMenu.classList.remove('open');
   });
 
   const categoryMealTimeDinner = document.querySelector('#dinner');
   categoryMealTimeDinner.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Dinner');
+    asideMenu.classList.remove('open');
   });
 
   const categoryMealTimeSnack = document.querySelector('#snack');
   categoryMealTimeSnack.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Snack');
+    asideMenu.classList.remove('open');
   });
 
   return {
