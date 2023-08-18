@@ -496,6 +496,60 @@ html, body {
 .fa-trash-can {
   color: #f44336;
 }
+ 
+/* Estilos para el modal de confirmación y edición */
+#customConfirmation, #customEdit {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-content, .edit-content {
+  position: relative; /* Se agrega esto para que el botón close funcione correctamente */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 80%;
+}
+
+#close {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  color: red;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box; 
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical 
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
 
 /* Estilos para Desktop*/
 @media screen and (min-width: 1024px) {

@@ -1,4 +1,5 @@
 import { getPosts, editPost, deletePost } from '../lib/index';
+import { showConfirmationModal, showEditModal } from './showCustomEditDeleteComents';
 // import { showCustomAlert } from './showCustomAlert';
 
 export const openCommentsModal = () => {
@@ -38,19 +39,17 @@ export const openCommentsModal = () => {
     deleteBtn.className = 'fa-solid fa-trash-can';
 
     editBtn.addEventListener('click', () => {
-      const newContent = prompt('Edita tu comentario:', post.content);
-      if (newContent) {
+      showEditModal(post.content, (newContent) => {
         editPost(post.id, newContent);
         postText.textContent = newContent;
-      }
+      });
     });
 
     deleteBtn.addEventListener('click', () => {
-      const confirmDeletion = prompt('¿Estás seguro de que deseas eliminar este comentario?');
-      if (confirmDeletion) {
+      showConfirmationModal('¿Estás seguro de que deseas eliminar este comentario?', () => {
         deletePost(post.id);
         postsList.removeChild(postItem);
-      }
+      });
     });
 
     postItem.append(postText, editBtn, deleteBtn);
