@@ -1,3 +1,6 @@
+import { recipes } from './data_recipes';
+import { createRecipeElement } from './recipesUI';
+
 export const createMenu = () => {
   const nav = document.createElement('nav');
   nav.classList.add('menu');
@@ -44,8 +47,27 @@ export const createMenu = () => {
     }
   });
 
+  const categoryFlavorsSweet = document.querySelector('#sweet');
+  categoryFlavorsSweet.addEventListener('click', () => {
+    const sweetRecipe = recipes.filter((recipe) => recipe.flavors === 'Sweet');
+    const recipesContainer = document.getElementsByClassName('recipes-container')[0];
+    while (recipesContainer.firstChild) {
+      recipesContainer.removeChild(recipesContainer.lastChild);
+    }
+
+    sweetRecipe.forEach((element) => {
+      const filterRecipe = createRecipeElement(element);
+      console.log(recipesContainer);
+      recipesContainer.appendChild(filterRecipe);
+    });
+  });
+
   return {
     navElement: nav,
     asideMenuElement: asideMenu,
   };
 };
+
+// const mealTime = recipes.filter(
+// (recipe) => recipe.mealTime === 'Breakfast' ||
+// recipe.mealTime === 'Lunch' || recipe.mealTime === 'Dinner' || recipe.mealTime === 'Snack');
