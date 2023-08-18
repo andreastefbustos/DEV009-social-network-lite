@@ -16,7 +16,7 @@ export const createMenu = () => {
     <li id='sweet-salty' class='category-item'>Sweet&Salty</li>
   </ul>
 
-  <h1 class="menu-title">Food Time</h1>
+  <h1 class="menu-title">Meal Time</h1>
   <ul>
     <li id='breakfast' class='category-item'>Breakfast</li>
     <li id='lunch' class='category-item'>Lunch</li>
