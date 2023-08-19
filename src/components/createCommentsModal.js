@@ -1,4 +1,6 @@
-import { getPosts, editPost, deletePost } from '../lib/index';
+import {
+  getPosts, editPost, deletePost, getLoggedInUser,
+} from '../lib/index';
 import { showConfirmationModal, showEditModal } from './showCustomEditDeleteComents';
 // import { showCustomAlert } from './showCustomAlert';
 
@@ -26,8 +28,14 @@ export const openCommentsModal = () => {
   const posts = getPosts();
 
   posts.forEach((post) => {
+    const currentUserEmail = getLoggedInUser().email;
+
     const postItem = document.createElement('li');
     postItem.className = 'li-postComents';
+
+    const postEmail = document.createElement('p');
+    postEmail.className = 'post-email';
+    postEmail.textContent = post.email;
 
     const postText = document.createElement('p');
     postText.textContent = post.content;
@@ -38,21 +46,26 @@ export const openCommentsModal = () => {
     const deleteBtn = document.createElement('i');
     deleteBtn.className = 'fa-solid fa-trash-can';
 
-    editBtn.addEventListener('click', () => {
-      showEditModal(post.content, (newContent) => {
-        editPost(post.id, newContent);
-        postText.textContent = newContent;
+    if (currentUserEmail === post.email) {
+      editBtn.addEventListener('click', () => {
+        showEditModal(post.content, (newContent) => {
+          editPost(post.id, newContent);
+          postText.textContent = newContent;
+        });
       });
-    });
 
-    deleteBtn.addEventListener('click', () => {
-      showConfirmationModal('¿Estás seguro de que deseas eliminar este comentario?', () => {
-        deletePost(post.id);
-        postsList.removeChild(postItem);
+      deleteBtn.addEventListener('click', () => {
+        showConfirmationModal('¿Estás seguro de que deseas eliminar este comentario?', () => {
+          deletePost(post.id);
+          postsList.removeChild(postItem);
+        });
       });
-    });
 
-    postItem.append(postText, editBtn, deleteBtn);
+      postItem.append(postEmail, postText, editBtn, deleteBtn);
+    } else {
+      postItem.append(postEmail, postText);
+    }
+
     postsList.append(postItem);
   });
 

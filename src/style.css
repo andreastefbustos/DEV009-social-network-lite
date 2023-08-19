@@ -469,6 +469,7 @@ html, body {
 }
 
 .li-postComents {
+  position: relative;
   list-style: none;
   border: 1px solid #e7e7e7;
   border-radius: 8px;
@@ -481,6 +482,16 @@ html, body {
 
 .li-postComents:hover {
   transform: translateY(-5px); /* Efecto "levantar" al pasar el mouse por encima */
+}
+
+/* Este estilo es para que el email en los comentarios se vea como una marca de agua */
+.post-email {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 12px;
+  opacity: 0.6;
+  color: #aaa;
 }
 
 /* Estilos para el boton de editar y eliminar comentarios */
