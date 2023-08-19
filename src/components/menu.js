@@ -25,6 +25,11 @@ export const createMenu = () => {
   const asideMenu = document.createElement('aside');
   asideMenu.classList.add('sidebar-menu');
   asideMenu.innerHTML = `
+  <h1 class="menu-title">Recipes</h1>
+  <ul>
+    <li id='all' class='category-item'>View All</li>
+  </ul>
+
   <h1 class="menu-title">Flavors</h1>
   <ul>
     <li id='sweet' class='category-item'>Sweet</li>
@@ -101,6 +106,22 @@ export const createMenu = () => {
   const categoryMealTimeSnack = document.querySelector('#snack');
   categoryMealTimeSnack.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Snack');
+    asideMenu.classList.remove('open');
+  });
+
+  // Mostrar todas recetas
+  const viewAllRecipes = document.querySelector('#all');
+  viewAllRecipes.addEventListener('click', () => {
+    const recipesContainer = document.getElementsByClassName('recipes-container')[0];
+    while (recipesContainer.firstChild) {
+      recipesContainer.removeChild(recipesContainer.lastChild);
+    }
+
+    recipes.forEach((element) => {
+      const allRecipes = createRecipeElement(element);
+      recipesContainer.appendChild(allRecipes);
+    });
+
     asideMenu.classList.remove('open');
   });
 

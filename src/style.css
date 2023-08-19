@@ -61,7 +61,7 @@ html, body {
 }
 
 .search-icon:hover {
-  transform: scale(1.9); /* Aumenta el tamaño en un 10% */
+  transform: scale(1.1); /* Aumenta el tamaño en un 10% */
 }
 
 .search-input {
