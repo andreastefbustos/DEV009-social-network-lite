@@ -26,6 +26,11 @@ export const openCommentsModal = () => {
 
   // Obtener todos los posts
   const posts = getPosts();
+  if (posts.length === 0) {
+    const messageNoComments = document.createElement('p');
+    messageNoComments.textContent = 'No hay comentarios!';
+    content.appendChild(messageNoComments);
+  }
 
   posts.forEach((post) => {
     const currentUserEmail = getLoggedInUser().email;

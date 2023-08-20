@@ -10,7 +10,7 @@ export const handleInteractionForRecipe = (recipe, recipeElement) => {
 
     // Likes
     const likesCount = document.createElement('span');
-    likesCount.textContent = `${recipe.likes.length} likes`; // Inicialmente muestra el número de likes
+    likesCount.textContent = `${recipe.likes.length} Likes`; // Inicialmente muestra el número de likes
 
     const likeButton = document.createElement('i');
     likeButton.className = 'fa-regular fa-heart';
@@ -33,7 +33,7 @@ export const handleInteractionForRecipe = (recipe, recipeElement) => {
       // Guardar de nuevo todos los likes en localStorage
       localStorage.setItem(`recipeLikes_${recipe.id}`, JSON.stringify(recipe.likes));
       // Actualiza los likes
-      likesCount.textContent = `${recipe.likes.length} likes`;
+      likesCount.textContent = `${recipe.likes.length} Likes`;
     });
 
     // Comments
