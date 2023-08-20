@@ -2,7 +2,6 @@ html, body {
   margin: 0;
   height: 100%;
   overflow-x: hidden;
-  /* padding-top: 30px; */
 }
 .header {
   padding: 20px;
@@ -15,7 +14,7 @@ html, body {
   top: 0;
   left: 0;
   right: 0; /* Esto asegura que el header se extienda a lo ancho de la ventana del navegador */
-  z-index: 1000; /* Esto es para asegurarte de que el header siempre esté en la parte superior de otros elementos */
+  z-index: 1000; /* Esto es para asegurar de que el header siempre esté en la parte superior de otros elementos */
 }
 
 #icon-menu {
@@ -547,12 +546,17 @@ html, body {
   width: 80%;
 }
 
+#textarea-commentsAll {
+  margin-top: 40px;
+}
+
 #close {
   position: absolute;
   right: 10px;
-  bottom: 10px;
   cursor: pointer;
   color: red;
+  padding: 5px;
+  margin: 5px;
 }
 
 textarea {
@@ -562,6 +566,10 @@ textarea {
   border-radius: 8px;
   border: 1px solid #ccc;
   resize: vertical 
+}
+
+#confirm-deleted {
+  margin-top: 40px;
 }
 
 button {

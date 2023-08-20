@@ -13,8 +13,9 @@ export const showConfirmationModal = (message, onConfirm) => {
     document.body.removeChild(confirmDiv);
   };
 
-  const textDiv = document.createElement('div');
-  textDiv.innerText = message;
+  const textConfirm = document.createElement('p');
+  textConfirm.id = 'confirm-deleted';
+  textConfirm.innerText = message;
 
   const confirmBtn = document.createElement('button');
   confirmBtn.innerText = 'Confirm';
@@ -23,7 +24,7 @@ export const showConfirmationModal = (message, onConfirm) => {
     document.body.removeChild(confirmDiv);
   };
 
-  confirmContent.append(closeBtn, textDiv, confirmBtn);
+  confirmContent.append(closeBtn, textConfirm, confirmBtn);
   confirmDiv.appendChild(confirmContent);
 
   document.body.appendChild(confirmDiv);
@@ -45,6 +46,7 @@ export const showEditModal = (defaultValue, onSave) => {
   };
 
   const textarea = document.createElement('textarea');
+  textarea.id = 'textarea-commentsAll';
   textarea.value = defaultValue;
 
   const saveBtn = document.createElement('button');
