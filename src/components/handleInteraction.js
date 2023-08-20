@@ -40,7 +40,7 @@ export const handleInteractionForRecipe = (recipe, recipeElement) => {
     const commentIcon = document.createElement('i');
     commentIcon.className = 'fa-regular fa-comment';
     commentIcon.addEventListener('click', () => {
-      openCommentModal();
+      openCommentModal(recipe);
     });
 
     const commentAll = document.createElement('p');

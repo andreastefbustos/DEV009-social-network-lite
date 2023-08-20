@@ -1,7 +1,7 @@
 import { createPost, getLoggedInUser } from '../lib/index';
 import { showCustomAlert } from './showCustomAlert';
 
-export const openCommentModal = () => {
+export const openCommentModal = (recipe) => {
   // Crear el modal
   const modal = document.createElement('div');
   modal.className = 'comment-modal';
@@ -23,7 +23,16 @@ export const openCommentModal = () => {
 
   button.addEventListener('click', () => {
     const userEmail = getLoggedInUser().email;
-    createPost(textarea.value, userEmail);
+    const id = createPost(textarea.value, userEmail);
+    const recipeComments = localStorage.getItem(`comments_${recipe.id}`);
+    if (recipeComments) {
+      const comments = JSON.parse(recipeComments);
+      comments.ids.push(id);
+      localStorage.setItem(`comments_${recipe.id}`, JSON.stringify(comments));
+    } else {
+      localStorage.setItem(`comments_${recipe.id}`, JSON.stringify({ ids: [id] }));
+    }
+
     showCustomAlert('Comentario agregado!');
     // Cerrar el modal después de publicar el comentario
     document.body.removeChild(modal);

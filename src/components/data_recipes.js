@@ -4,6 +4,7 @@ export const recipes = [
     imageUrl: '../img/recipes/ensalada-alkalina.png',
     title: 'Ensalada Alkalina',
     likes: [],
+    comments: [],
     ingredients: [
       '1 Pepino pelado y picado en cubitos',
       '1 Tomate regular picado en cuadros o 1⁄2 taza de tomaticos cherry picados',
@@ -23,6 +24,7 @@ export const recipes = [
     imageUrl: '../img/recipes/pasta-cremosa.png',
     title: 'Pasta de zucchini con atún',
     likes: [],
+    comments: [],
     ingredients: [
       '2 zucchinis (calabacín, zapallo) grandes, picado en bastones pequeños, si tienes “spiralizer”',
       '1 manojo de cilantro',
@@ -47,6 +49,7 @@ export const recipes = [
     imageUrl: '../img/recipes/pescado.png',
     title: 'Pescado con aderezo y platano',
     likes: [],
+    comments: [],
     ingredients: [
       '1 pieza de pescado 120 gr aprox, puede ser salmón o pescado fresco de tu preferencia',
       '50 gr aprox (1⁄2 platano aprox) de platano macho (amarillo no tan maduro). Picado en cubitos pequeños',
@@ -72,6 +75,7 @@ export const recipes = [
     imageUrl: '../img/recipes/tortilla-atun.png',
     title: 'Tortilla de Atún',
     likes: [],
+    comments: [],
     ingredients: [
       '1⁄2 cebolla picada',
       'Manojo de perejil picado',
@@ -95,6 +99,7 @@ export const recipes = [
     imageUrl: '../img/recipes/avena-proteica.png',
     title: 'Avena Protéica',
     likes: [],
+    comments: [],
     ingredients: [
       '1/2 taza de avena',
       '1 1/2 de agua o leche de almendras sin azúcar',
@@ -117,6 +122,7 @@ export const recipes = [
     imageUrl: '../img/recipes/pancakes-avena.png',
     title: 'Pancakes de Avena',
     likes: [],
+    comments: [],
     ingredients: [
       '1/2 taza de harina de trigo o de avena.',
       '1 cdta. de polvo para hornear.',
@@ -141,6 +147,7 @@ export const recipes = [
     imageUrl: '../img/recipes/pancakes-curcuma.png',
     title: 'Pancakes de cúrcuma',
     likes: [],
+    comments: [],
     ingredients: [
       '1 y 1⁄4 taza de harina de almendras, coco o mezcladas (se puede sustituir por harina de avena)',
       '1 cucharadita de polvo para hornear',
@@ -168,6 +175,7 @@ export const recipes = [
     imageUrl: '../img/recipes/yogurt-griego.png',
     title: 'Bowl de yogurt griego',
     likes: [],
+    comments: [],
     ingredients: [
       '1 yogurt griego “Plain” (sin azúcar ni frutas o almíbar añadido).',
       '2-3 cucharadas de almendras fileteadas o trituradas tostadas (puedes tostarlas en un sartén a fuego medio hasta que doren, sin que se quemen mucho porque se amargan).',

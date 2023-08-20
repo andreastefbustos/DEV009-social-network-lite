@@ -4,7 +4,7 @@ import {
 import { showConfirmationModal, showEditModal } from './showCustomEditDeleteComents';
 // import { showCustomAlert } from './showCustomAlert';
 
-export const openCommentsModal = () => {
+export const openCommentsModal = (recipe) => {
   // Se crea el modal
   const modal = document.createElement('div');
   modal.className = 'posts-modal';
@@ -26,13 +26,17 @@ export const openCommentsModal = () => {
 
   // Obtener todos los posts
   const posts = getPosts();
-  if (posts.length === 0) {
-    const messageNoComments = document.createElement('p');
-    messageNoComments.textContent = 'No hay comentarios!';
-    content.appendChild(messageNoComments);
+  let commentsIds = [];
+  const recipeComments = localStorage.getItem(`comments_${recipe.id}`);
+  if (recipeComments) {
+    const comments = JSON.parse(recipeComments);
+    commentsIds = comments.ids;
   }
 
   posts.forEach((post) => {
+    if (!commentsIds.includes(post.id)) {
+      return;
+    }
     const currentUserEmail = getLoggedInUser().email;
 
     const postItem = document.createElement('li');
