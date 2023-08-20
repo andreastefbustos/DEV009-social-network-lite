@@ -46,7 +46,6 @@ export const handleInteractionForRecipe = (recipe, recipeElement) => {
     const commentAll = document.createElement('p');
     commentAll.className = 'commentPostAll';
     commentAll.textContent = 'View all comments';
-
     commentAll.addEventListener('click', () => {
       openCommentsModal(recipe);
     });

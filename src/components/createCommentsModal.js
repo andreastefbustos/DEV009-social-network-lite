@@ -33,50 +33,56 @@ export const openCommentsModal = (recipe) => {
     commentsIds = comments.ids;
   }
 
-  posts.forEach((post) => {
-    if (!commentsIds.includes(post.id)) {
-      return;
-    }
-    const currentUserEmail = getLoggedInUser().email;
+  if (commentsIds.length === 0 || posts.length === 0) {
+    const messageNoComments = document.createElement('p');
+    messageNoComments.textContent = 'No hay comentarios!.';
+    content.append(messageNoComments);
+  } else {
+    posts.forEach((post) => {
+      if (!commentsIds.includes(post.id)) {
+        return;
+      }
+      const currentUserEmail = getLoggedInUser().email;
 
-    const postItem = document.createElement('li');
-    postItem.className = 'li-postComents';
+      const postItem = document.createElement('li');
+      postItem.className = 'li-postComents';
 
-    const postEmail = document.createElement('p');
-    postEmail.className = 'post-email';
-    postEmail.textContent = post.email;
+      const postEmail = document.createElement('p');
+      postEmail.className = 'post-email';
+      postEmail.textContent = post.email;
 
-    const postText = document.createElement('p');
-    postText.textContent = post.content;
+      const postText = document.createElement('p');
+      postText.textContent = post.content;
 
-    const editBtn = document.createElement('i');
-    editBtn.className = 'fa-solid fa-pen-to-square';
+      const editBtn = document.createElement('i');
+      editBtn.className = 'fa-solid fa-pen-to-square';
 
-    const deleteBtn = document.createElement('i');
-    deleteBtn.className = 'fa-solid fa-trash-can';
+      const deleteBtn = document.createElement('i');
+      deleteBtn.className = 'fa-solid fa-trash-can';
 
-    if (currentUserEmail === post.email) {
-      editBtn.addEventListener('click', () => {
-        showEditModal(post.content, (newContent) => {
-          editPost(post.id, newContent);
-          postText.textContent = newContent;
+      if (currentUserEmail === post.email) {
+        editBtn.addEventListener('click', () => {
+          showEditModal(post.content, (newContent) => {
+            editPost(post.id, newContent);
+            postText.textContent = newContent;
+          });
         });
-      });
 
-      deleteBtn.addEventListener('click', () => {
-        showConfirmationModal('¿Estás seguro de que deseas eliminar este comentario?', () => {
-          deletePost(post.id);
-          postsList.removeChild(postItem);
+        deleteBtn.addEventListener('click', () => {
+          showConfirmationModal('¿Estás seguro de que deseas eliminar este comentario?', () => {
+            deletePost(post.id);
+            postsList.removeChild(postItem);
+          });
         });
-      });
 
-      postItem.append(postEmail, postText, editBtn, deleteBtn);
-    } else {
-      postItem.append(postEmail, postText);
-    }
+        postItem.append(postEmail, postText, editBtn, deleteBtn);
+      } else {
+        postItem.append(postEmail, postText);
+      }
 
-    postsList.append(postItem);
-  });
+      postsList.append(postItem);
+    });
+  }
 
   const closeModal = () => {
     document.body.removeChild(modal);
