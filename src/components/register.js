@@ -8,9 +8,7 @@ export const registerPage = (navigateTo) => {
   <i class="close-register fa-solid fa-circle-xmark"></i>
   <div id="register">
     <div id="img-register"></div>
-    
     <form id="register-form" autocomplete="off">
-      
       <h1 id="register-title">Create an account</h1>
       
       <div class="input-group">

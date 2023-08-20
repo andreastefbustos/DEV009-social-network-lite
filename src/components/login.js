@@ -6,9 +6,8 @@ export const userLogin = (navigateTo) => {
   // Muestra el formulario de inicio de sesión
   const loginForm = document.createElement('div');
   loginForm.innerHTML = `
-  <div id="login-container">
-    <img id="img-login" src="../img/login.png" alt="login">
     <div id="login-content">
+      <img id="img-login" src="../img/login.png" alt="login">
       <form id="login-form" autocomplete="off">
         <h1 id="title-login">VitalDish</h1>
 
@@ -23,10 +22,9 @@ export const userLogin = (navigateTo) => {
         </div>
 
         <button type="submit">Login</button>
+        <p id="join">Do not have an account? <span class="highlight">Join now</span></p>
       </form>
-      <p id="join">Do not have an account? <span class="highlight">Join now</span></p>
   </div>
-</div>
 `;
 
   // Evento de envío para el formulario de inicio de sesión

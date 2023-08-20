@@ -131,13 +131,6 @@ html, body {
 }
 
 /* Estilos al login  */
-#login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;     
-  height: 100vh;
-}
-
 #login-content {
   order: 1;
 }
@@ -146,19 +139,18 @@ html, body {
   color: #E88224;
   text-align: center;
   margin: 30px 0px;
+  font-size: 40px;
 }
 
 #login-form {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  width: 50%; 
-  margin: 0 auto; 
+  align-items: center;
+  margin: 40px auto 0; 
 }
 
 .email-password {
-  font-size: large;
-  margin-right: 10px; 
+  font-size: 24px;
 }
 
 #login-form input[type="email"], 
@@ -181,7 +173,9 @@ html, body {
 
 #join {
   text-align: center;
-  color: black; 
+  color: black;
+  font-size: 20px;
+  margin-top: 0; 
 }
 
 #join .highlight {
@@ -191,7 +185,9 @@ html, body {
 }
 
 #img-login {
-  margin: 20px auto 0; 
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto 0; 
   max-width: 100%; 
   border-radius: 0 30% 0 0;
   order: 2;
@@ -202,7 +198,6 @@ html, body {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   margin-bottom: 20px;
-  /* color: #FF704D; */
 }
 
 #register {
@@ -215,7 +210,6 @@ html, body {
   align-items: center;
   min-height: 100vh; /* Esto asegurará que el contenedor ocupe toda la altura de la vista */
   box-sizing: border-box;
-  /* background: linear-gradient(to right, #56ab2f, #a8e063); */
 }
 
 #img-register {
@@ -586,26 +580,35 @@ button:hover {
 
 /* Estilos para Desktop*/
 @media screen and (min-width: 1024px) {
-  #login-container {
-    flex-direction: row;
-  }
-
-  #login-content, #img-login {
-    width: 50%; /* Divide la pantalla en dos mitades */
-  }
-
   #login-content {
-    order: 2; /* Cambia el orden para que el contenido del login se muestre a la derecha */
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;     
+    height: 100vh;
   }
 
   #img-login {
     order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
+    position: static;
     border-radius: 0;
-    width: 50%;
+    max-width: 50%;
+    flex: 0 0 50%;
     height: 100%;
-    margin: 0;
+  }
+
+  #login-form {
+    flex: 0 0 50%;
+    order: 2; /* Cambia el orden para que el formulario se muestre a la derecha */
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .email-container, .password-container {
+    margin-bottom: 15px;
+  }
+
+  button[type="submit"] {
+    margin-top: 20px;
   }
 
   .search-input {
@@ -640,4 +643,53 @@ button:hover {
   .recipes-container {
     grid-template-columns: repeat(3, 1fr); /* 3 columnas con el mismo ancho */
   }
+}
+
+@media screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) {
+    .search-input {
+      width: 200px; 
+    }
+}
+
+@media screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1366px) 
+  and (orientation: landscape) {
+    #login-content {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;     
+      height: 100vh;
+    }
+  
+    #img-login {
+      order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
+      position: static;
+      border-radius: 0;
+      max-width: 50%;
+      flex: 0 0 50%;
+      height: 100%;
+    }
+  
+    #login-form {
+      flex: 0 0 50%;
+      order: 2; /* Cambia el orden para que el formulario se muestre a la derecha */
+      box-sizing: border-box;
+      padding: 20px;
+    }
+  
+    .email-container, .password-container {
+      margin-bottom: 15px;
+    }
+  
+    button[type="submit"] {
+      margin-top: 20px;
+    }
+
+    .search-input {
+      width: 200px; 
+    }
 }
