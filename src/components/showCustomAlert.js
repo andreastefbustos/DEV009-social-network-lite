@@ -5,9 +5,8 @@ export const showCustomAlert = (message) => {
   const alertContent = document.createElement('div');
   alertContent.classList.add('alert-content');
 
-  const closeBtn = document.createElement('span');
-  closeBtn.classList.add('close');
-  closeBtn.innerHTML = 'X';
+  const closeBtn = document.createElement('i');
+  closeBtn.className = 'close fa-solid fa-circle-xmark';
   closeBtn.onclick = () => {
     document.body.removeChild(alertDiv);
   };

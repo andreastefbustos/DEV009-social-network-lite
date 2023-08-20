@@ -15,7 +15,7 @@ export const openCommentsModal = () => {
 
   // Crear el botón de cerrar (x) y su evento
   const closeModalIcon = document.createElement('i');
-  closeModalIcon.className = 'close-botton-modal fa-solid fa-xmark';
+  closeModalIcon.className = 'close-botton-modal fa-solid fa-circle-xmark';
   closeModalIcon.addEventListener('click', () => {
     document.body.removeChild(modal);
   });
