@@ -5,10 +5,13 @@ import { showCustomAlert } from './showCustomAlert';
 export const registerPage = (navigateTo) => {
   const registerForm = document.createElement('div');
   registerForm.innerHTML = `
+  <i class="close-register fa-solid fa-circle-xmark"></i>
   <div id="register">
     <div id="img-register"></div>
+    
     <form id="register-form" autocomplete="off">
-      <h1>Create an account</h1>
+      
+      <h1 id="register-title">Create an account</h1>
       
       <div class="input-group">
           <label for="register-name">Name</label>
@@ -56,6 +59,12 @@ export const registerPage = (navigateTo) => {
           showCustomAlert('An error occurred during registration');
       }
     }
+  });
+
+  // Evento para el icono x y que regrese a la pagina del login
+  const closeButton = registerForm.querySelector('.close-register');
+  closeButton.addEventListener('click', () => {
+    navigateTo('/login');
   });
 
   return registerForm;
