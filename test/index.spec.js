@@ -10,6 +10,8 @@ import {
   deletePost,
 } from '../src/lib/index';
 
+import { init } from '../src/lib/services';
+
 // Mock de localStorage
 beforeEach(() => {
   const users = [{ email: 'test@example.com', password: '123456' }];
@@ -38,6 +40,14 @@ beforeEach(() => {
       clear: jest.fn(),
     },
     writable: true,
+  });
+});
+
+// TEST para la función init
+describe('init function', () => {
+  it('Should clear the localStorage', () => {
+    init();
+    expect(localStorage.clear).toHaveBeenCalled();
   });
 });
 
@@ -127,7 +137,16 @@ describe('createPost function', () => {
     const id = createPost('This is a valid content', 'test@example.com');
     expect(typeof id).toBe('string');
     expect(id.length).toBeGreaterThan(0);
-    expect(localStorage.setItem).toHaveBeenCalledWith('posts', JSON.stringify([{ id, content: 'This is a valid content', email: 'test@example.com' }]));
+
+    const existingPosts = [
+      { id: 'post1', content: 'content1', email: 'test1@example.com' },
+      { id: 'post2', content: 'content2', email: 'test2@example.com' },
+    ];
+
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      'posts',
+      JSON.stringify([...existingPosts, { id, content: 'This is a valid content', email: 'test@example.com' }]),
+    );
   });
 
   it('Should trow an error woth too short content', () => {
