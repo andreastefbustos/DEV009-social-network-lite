@@ -1,15 +1,23 @@
 // importamos la funcion que vamos a testear
 import {
-  login, logout, register, getLoggedInUser, createPost, getPosts, editPost,
+  login,
+  logout,
+  register,
+  getLoggedInUser,
+  createPost,
+  getPosts,
+  editPost,
+  deletePost,
 } from '../src/lib/index';
 
 // Mock de localStorage
 beforeEach(() => {
-  const users = [
-    { email: 'test@example.com', password: '123456' },
-  ];
-
+  const users = [{ email: 'test@example.com', password: '123456' }];
   const loggedInUser = { email: 'test@example.com', password: '123456' };
+  const posts = [
+    { id: 'post1', content: 'content1', email: 'test1@example.com' },
+    { id: 'post2', content: 'content2', email: 'test2@example.com' },
+  ];
 
   Object.defineProperty(window, 'localStorage', {
     value: {
@@ -19,6 +27,8 @@ beforeEach(() => {
             return JSON.stringify(users);
           case 'user':
             return JSON.stringify(loggedInUser);
+          case 'posts':
+            return JSON.stringify(posts);
           default:
             return null;
         }
@@ -215,4 +225,29 @@ describe('editPost function', () => {
     expect(localStorage.setItem).toHaveBeenCalledWith('posts', JSON.stringify(updatedPosts));
   });
 });
+
 // TEST para la funcion deletePost
+describe('deletePost function', () => {
+  it('Should delete a post by id', () => {
+    deletePost('post1');
+
+    const expectedPosts = [
+      { id: 'post2', content: 'content2', email: 'test2@example.com' },
+    ];
+    expect(localStorage.setItem).toHaveBeenCalledWith('posts', JSON.stringify(expectedPosts));
+  });
+
+  it('Should throw an error if post does not exist', () => {
+    expect(() => {
+      deletePost('nonExistentPost');
+    }).toThrow('Post does not exist');
+  });
+
+  it('Should throw an error if there are no posts', () => {
+    window.localStorage.getItem.mockReturnValueOnce(null);
+
+    expect(() => {
+      deletePost('post1');
+    }).toThrow('Post does not exist');
+  });
+});
