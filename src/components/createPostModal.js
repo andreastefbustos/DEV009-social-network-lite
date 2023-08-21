@@ -23,19 +23,23 @@ export const openCommentModal = (recipe) => {
 
   button.addEventListener('click', () => {
     const userEmail = getLoggedInUser().email;
-    const id = createPost(textarea.value, userEmail);
-    const recipeComments = localStorage.getItem(`comments_${recipe.id}`);
-    if (recipeComments) {
-      const comments = JSON.parse(recipeComments);
-      comments.ids.push(id);
-      localStorage.setItem(`comments_${recipe.id}`, JSON.stringify(comments));
-    } else {
-      localStorage.setItem(`comments_${recipe.id}`, JSON.stringify({ ids: [id] }));
-    }
+    try {
+      const id = createPost(textarea.value, userEmail);
+      const recipeComments = localStorage.getItem(`comments_${recipe.id}`);
+      if (recipeComments) {
+        const comments = JSON.parse(recipeComments);
+        comments.ids.push(id);
+        localStorage.setItem(`comments_${recipe.id}`, JSON.stringify(comments));
+      } else {
+        localStorage.setItem(`comments_${recipe.id}`, JSON.stringify({ ids: [id] }));
+      }
 
-    showCustomAlert('Comentario agregado!');
-    // Cerrar el modal después de publicar el comentario
-    document.body.removeChild(modal);
+      showCustomAlert('Comentario agregado!');
+      // Cerrar el modal después de publicar el comentario
+      document.body.removeChild(modal);
+    } catch (error) {
+      showCustomAlert(error.message);
+    }
   });
 
   content.append(textarea, button);

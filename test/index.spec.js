@@ -1,19 +1,27 @@
 // importamos la funcion que vamos a testear
-import { login, logout, register } from '../src/lib/index';
+import {
+  login, logout, register, getLoggedInUser, createPost,
+} from '../src/lib/index';
 
+// Mock de localStorage
 beforeEach(() => {
   const users = [
     { email: 'test@example.com', password: '123456' },
-    // ... otros usuarios si los necesitas
   ];
+
+  const loggedInUser = { email: 'test@example.com', password: '123456' };
 
   Object.defineProperty(window, 'localStorage', {
     value: {
       getItem: jest.fn((key) => {
-        if (key === 'users') {
-          return JSON.stringify(users);
+        switch (key) {
+          case 'users':
+            return JSON.stringify(users);
+          case 'user':
+            return JSON.stringify(loggedInUser);
+          default:
+            return null;
         }
-        return null;
       }),
       setItem: jest.fn(),
       removeItem: jest.fn(), // para el logout
@@ -25,20 +33,20 @@ beforeEach(() => {
 
 // TEST para la funcion de login
 describe('Login function', () => {
-  it('should return true for valid credentials', () => {
+  it('Should return true for valid credentials', () => {
     const result = login('test@example.com', '123456');
 
     expect(result).toBe(true);
     expect(localStorage.setItem).toHaveBeenCalledWith('user', JSON.stringify({ email: 'test@example.com', password: '123456' }));
   });
 
-  it('should return undefined for invalid credentials', () => {
+  it('Should return undefined for invalid credentials', () => {
     const result = login('test@example.com', 'wrongpassword');
     expect(result).toBeUndefined();
     expect(localStorage.setItem).not.toHaveBeenCalled();
   });
 
-  it('should return false when there are no users', () => {
+  it('Should return false when there are no users', () => {
   // simula que no hay usuarios en localStorage
     localStorage.getItem.mockReturnValueOnce(null);
 
@@ -51,7 +59,7 @@ describe('Login function', () => {
 
 // TEST para la funcion logout
 describe('Logout function', () => {
-  it('should remove user from localStorage', () => {
+  it('Should remove user from localStorage', () => {
     // Llamas a la función que quieres testear
     logout();
 
@@ -62,29 +70,57 @@ describe('Logout function', () => {
 
 // TEST para la funcion register
 describe('Register function', () => {
-  it('should register a new user successfully', () => {
+  it('Should register a new user successfully', () => {
     localStorage.getItem.mockReturnValueOnce(null); // No hay usuarios previamente registrados
     const result = register('test@example.com', 'password123');
     expect(result).toBe(true);
     expect(localStorage.setItem).toHaveBeenCalledWith('users', JSON.stringify([{ email: 'test@example.com', password: 'password123' }]));
   });
 
-  it('should throw an error with an invalid email', () => {
+  it('Should throw an error with an invalid email', () => {
     expect(() => {
       register('notanemail', 'password123');
     }).toThrow('Invalid email');
   });
 
-  it('should throw an error with a short password', () => {
+  it('Should throw an error with a short password', () => {
     expect(() => {
       register('test@example.com', 'pass');
     }).toThrow('Password must be at least 6 characters long');
   });
 
-  it('should throw an error if user already exists', () => {
+  it('Should throw an error if user already exists', () => {
     localStorage.getItem.mockReturnValueOnce(JSON.stringify([{ email: 'test@example.com', password: 'password123' }]));
     expect(() => {
       register('test@example.com', 'password1234');
     }).toThrow('User already exists');
   });
 });
+
+// TEST para la funcion getLoggedInUser
+describe('getLoggedInUser function', () => {
+  it('Should return the logged-in user if it exists', () => {
+    const result = getLoggedInUser();
+    expect(result).toEqual({ email: 'test@example.com', password: '123456' });
+  });
+
+  it('Should return null if no user is logged in', () => {
+    window.localStorage.getItem.mockReturnValueOnce(null);
+    const result = getLoggedInUser();
+    expect(result).toBeNull();
+  });
+});
+
+// TEST para la funcion createPost
+describe('createPost function', () => {
+  it('Should create a post successfully', () => {
+    const id = createPost('This is a valid content', 'test@example.com');
+    expect(typeof id).toBe('string');
+    expect(id.length).toBeGreaterThan(0);
+    // expect(localStorage.setItem).toHaveBeenCalledWith('post',
+    // JSON.stringify([{ id, content: 'This is a valid content', email: 'test@example.com' }]));
+  });
+});
+// TEST para la funcion getPosts
+// TEST para la funcion editPost
+// TEST para la funcion deletePost

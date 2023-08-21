@@ -18,6 +18,7 @@ export const showConfirmationModal = (message, onConfirm) => {
   textConfirm.innerText = message;
 
   const confirmBtn = document.createElement('button');
+  confirmBtn.id = 'delete-confirm-button';
   confirmBtn.innerText = 'Confirm';
   confirmBtn.onclick = () => {
     onConfirm();
@@ -50,6 +51,7 @@ export const showEditModal = (defaultValue, onSave) => {
   textarea.value = defaultValue;
 
   const saveBtn = document.createElement('button');
+  saveBtn.id = 'save-button';
   saveBtn.innerText = 'Save';
   saveBtn.onclick = () => {
     onSave(textarea.value);

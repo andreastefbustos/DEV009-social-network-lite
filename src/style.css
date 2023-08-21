@@ -157,6 +157,16 @@ html, body {
   margin: 40px auto 0; 
 }
 
+#login-form button {
+  padding: 10px 15px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 30px;
+}
+
 .email-password {
   font-size: 24px;
 }
@@ -167,16 +177,6 @@ html, body {
   padding: 9px;
   border: 0px solid #ccc;
   background-color: rgb(232, 240, 254);
-}
-
-#login-form button {
-  padding: 10px 15px;
-  background-color: green;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 30px;
 }
 
 #join {
@@ -224,7 +224,7 @@ html, body {
   display: none;  /* Estará oculto en dispositivos móviles */
 }
 
-#register-form {
+#register-form button {
   position: relative;
   background-color: rgba(245, 245, 245, 0.8);
   margin: 20px;
@@ -267,7 +267,7 @@ html, body {
   margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
 }
 
-#register-form button {
+#register-form {
   padding: 10px 15px;
   background-color: green;
   color: #fff;
@@ -356,10 +356,6 @@ html, body {
 .fa-heart.active {
   color: red; /* Color cuando ha sido seleccionado */
   font-weight: 900; /* Esto cambiará el ícono regular al sólido en Font Awesome 5+ */
-}
-
-.commentPostAll {
-  margin: 0;
 }
 
 .title-recipe {
@@ -462,6 +458,7 @@ html, body {
 
 /* Estilos para el modal cuando muestra todos los comentarios */
 .commentPostAll {
+  margin: 0;
   cursor: pointer;
 }
 .posts-modal {
@@ -475,17 +472,6 @@ html, body {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-}
-
-.modal-content {
-  width: 70%;
-  max-width: 500px;
-  max-height: 80vh; /* 80% de la altura de la ventana */
-  padding: 20px;
-  background-color: white;
-  position: relative;
-  overflow-y: auto;
-  border-radius: 10px;
 }
 
 .posts-list {
@@ -581,7 +567,7 @@ textarea {
   margin-top: 40px;
 }
 
-button {
+#delete-confirm-button, #save-button {
   padding: 10px 20px;
   border: none;
   background-color: #4CAF50;
@@ -591,7 +577,11 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
+#save-button:hover {
+  background-color: #45a049;
+}
+
+#delete-confirm-button:hover {
   background-color: #45a049;
 }
 
