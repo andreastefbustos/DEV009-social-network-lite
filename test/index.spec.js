@@ -60,10 +60,10 @@ describe('Login function', () => {
 // TEST para la funcion logout
 describe('Logout function', () => {
   it('Should remove user from localStorage', () => {
-    // Llamas a la función que quieres testear
+    // Se llama a la función que se quiere testear
     logout();
 
-    // Verificas que removeItem haya sido llamado con el argumento correcto
+    // Se verifica que removeItem haya sido llamado con el argumento correcto
     expect(localStorage.removeItem).toHaveBeenCalledWith('user');
   });
 });
@@ -117,10 +117,37 @@ describe('createPost function', () => {
     const id = createPost('This is a valid content', 'test@example.com');
     expect(typeof id).toBe('string');
     expect(id.length).toBeGreaterThan(0);
-    // expect(localStorage.setItem).toHaveBeenCalledWith('post',
-    // JSON.stringify([{ id, content: 'This is a valid content', email: 'test@example.com' }]));
+    expect(localStorage.setItem).toHaveBeenCalledWith('posts', JSON.stringify([{ id, content: 'This is a valid content', email: 'test@example.com' }]));
+  });
+
+  it('Should trow an error woth too short content', () => {
+    expect(() => {
+      createPost('', 'test@example.com');
+    }).toThrow('Content must be at least 1 character long');
+  });
+
+  it('Should throw an error with an invalid email', () => {
+    expect(() => {
+      createPost('This is a valid content', 'notanemail');
+    }).toThrow('Invalid email');
+  });
+
+  it('Should save posts to localStorage', () => {
+    const previosPosts = [{
+      id: 'someID',
+      content: 'Previous content',
+      email: 'previous@example.com',
+    }];
+    localStorage.getItem.mockReturnValueOnce(JSON.stringify(previosPosts));
+
+    const id = createPost('Another valid content', 'test@example.com');
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      'posts',
+      JSON.stringify([...previosPosts, { id, content: 'Another valid content', email: 'test@example.com' }]),
+    );
   });
 });
+
 // TEST para la funcion getPosts
 // TEST para la funcion editPost
 // TEST para la funcion deletePost
