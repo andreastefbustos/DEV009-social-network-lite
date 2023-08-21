@@ -2,6 +2,7 @@
 import {
   login, logout, register, getLoggedInUser, createPost,
 } from '../src/lib/index';
+import { getPosts } from '../src/lib/services';
 
 // Mock de localStorage
 beforeEach(() => {
@@ -149,5 +150,26 @@ describe('createPost function', () => {
 });
 
 // TEST para la funcion getPosts
+describe('getPosts function', () => {
+  it('Should return an empty array if there are no posts in localStorage', () => {
+    // Mock para simular que no hay posts en localStorage
+    localStorage.getItem.mockReturnValueOnce(null);
+
+    const result = getPosts();
+    expect(result).toEqual([]);
+  });
+
+  it('Should return an array of posts if they exist in localStorage', () => {
+    const mockPosts = [
+      { id: 'post1', content: 'Test content 1', email: 'test1@example.com' },
+      { id: 'post2', content: 'Test content 2', email: 'test2@example.com' },
+    ];
+
+    localStorage.getItem.mockReturnValueOnce(JSON.stringify(mockPosts));
+
+    const result = getPosts();
+    expect(result).toEqual(mockPosts);
+  });
+});
 // TEST para la funcion editPost
 // TEST para la funcion deletePost
