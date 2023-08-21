@@ -224,7 +224,7 @@ html, body {
   display: none;  /* Estará oculto en dispositivos móviles */
 }
 
-#register-form button {
+#register-form {
   position: relative;
   background-color: rgba(245, 245, 245, 0.8);
   margin: 20px;
@@ -267,7 +267,7 @@ html, body {
   margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
 }
 
-#register-form {
+#register-form button{
   padding: 10px 15px;
   background-color: green;
   color: #fff;
