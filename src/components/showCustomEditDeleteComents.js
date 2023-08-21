@@ -1,3 +1,5 @@
+import { showCustomAlert } from './showCustomAlert';
+
 // Mostrar un modal de confirmación para eliminar el comentario
 export const showConfirmationModal = (message, onConfirm) => {
   const confirmDiv = document.createElement('div');
@@ -54,8 +56,12 @@ export const showEditModal = (defaultValue, onSave) => {
   saveBtn.id = 'save-button';
   saveBtn.innerText = 'Save';
   saveBtn.onclick = () => {
-    onSave(textarea.value);
-    document.body.removeChild(editDiv);
+    try {
+      onSave(textarea.value);
+      document.body.removeChild(editDiv);
+    } catch (err) {
+      showCustomAlert(err.message);
+    }
   };
 
   editContent.append(closeBtn, textarea, saveBtn);

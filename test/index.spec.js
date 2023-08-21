@@ -1,8 +1,7 @@
 // importamos la funcion que vamos a testear
 import {
-  login, logout, register, getLoggedInUser, createPost,
+  login, logout, register, getLoggedInUser, createPost, getPosts, editPost,
 } from '../src/lib/index';
-import { getPosts } from '../src/lib/services';
 
 // Mock de localStorage
 beforeEach(() => {
@@ -171,5 +170,49 @@ describe('getPosts function', () => {
     expect(result).toEqual(mockPosts);
   });
 });
+
 // TEST para la funcion editPost
+describe('editPost function', () => {
+  it('Should throw an error with too short content', () => {
+    expect(() => {
+      editPost('someID', '');
+    }).toThrow('Content must be at least 1 character long');
+  });
+
+  it('Should throw an error if there are no post in localStorage', () => {
+    localStorage.getItem.mockReturnValueOnce(null);
+    expect(() => {
+      editPost('someID', 'Valid content');
+    }).toThrow('Post does not exist');
+  });
+
+  it('Should throw an error if the post to edit does not exist', () => {
+    const mockPosts = [
+      { id: 'post1', content: 'Test content 1', email: 'test1@example.com' },
+      { id: 'post2', content: 'Test content 2', email: 'test2@example.com' },
+    ];
+    localStorage.getItem.mockReturnValueOnce(JSON.stringify(mockPosts));
+
+    expect(() => {
+      editPost('nonExistentID', 'Valid content');
+    }).toThrow('Post does not exist');
+  });
+
+  it('Should edit the post content correctly', () => {
+    const mockPosts = [
+      { id: 'post1', content: 'Test content 1', email: 'test1@example.com' },
+      { id: 'post2', content: 'Test content 2', email: 'test2@example.com' },
+    ];
+    const updatedContent = 'Updated content for post1';
+    localStorage.getItem.mockReturnValueOnce(JSON.stringify(mockPosts));
+
+    editPost('post1', updatedContent);
+
+    const updatedPosts = [
+      { id: 'post1', content: updatedContent, email: 'test1@example.com' },
+      { id: 'post2', content: 'Test content 2', email: 'test2@example.com' },
+    ];
+    expect(localStorage.setItem).toHaveBeenCalledWith('posts', JSON.stringify(updatedPosts));
+  });
+});
 // TEST para la funcion deletePost
