@@ -1,13 +1,14 @@
 import { register } from '../lib/index';
 import { showCustomAlert } from './showCustomAlert';
+import imgRegister from '../img/register.png';
 
 // Función para mostrar la página de registro
 export const registerPage = (navigateTo) => {
   const registerForm = document.createElement('div');
   registerForm.innerHTML = `
-  <i class="close-register fa-solid fa-circle-xmark"></i>
   <div id="register">
-    <div id="img-register"></div>
+    <i class="close-register fa-solid fa-circle-xmark"></i>
+    <img id="img-register" src=${imgRegister} alt="login">
     <form id="register-form" autocomplete="off">
       <h1 id="register-title">Create an account</h1>
       

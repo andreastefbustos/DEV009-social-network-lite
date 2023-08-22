@@ -1,13 +1,13 @@
 import { login } from '../lib/index';
 import { showCustomAlert } from './showCustomAlert';
-// import { getLoggedInUser } from '../lib/services';
+import imgLogin from '../img/login.png';
 
 export const userLogin = (navigateTo) => {
   // Muestra el formulario de inicio de sesión
   const loginForm = document.createElement('div');
   loginForm.innerHTML = `
     <div id="login-content">
-      <img id="img-login" src="../img/login.png" alt="login">
+      <img id="img-login" src=${imgLogin} alt="login">
       <form id="login-form" autocomplete="off">
         <h1 id="title-login">VitalDish</h1>
 

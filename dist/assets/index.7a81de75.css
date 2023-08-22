@@ -1,0 +1,711 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.header {
+  padding: 15px 30px;
+  background-color: #E88224;
+  border-bottom: 2px solid #e7e7e7;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; /* Esto asegura que el header se extienda a lo ancho de la ventana del navegador */
+  z-index: 1000; /* Esto es para asegurar de que el header siempre esté en la parte superior de otros elementos */
+}
+
+#icon-menu {
+  background-color: #ffffff;
+  border: 2px solid #E88224;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;  /* Centra el ícono horizontalmente */
+  align-items: center;  /* Centra el ícono verticalmente */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#icon-menu:hover {
+  background-color: rgba(241, 227, 213, 0.7); /* Ligero efecto de desvanecimiento en hover */
+}
+
+#icon-menu .fa-bars {
+  color: black;
+}
+
+.title-home {
+  font-size: x-large;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.menu, .search, .login {
+  display: flex;
+  align-items: center;
+}
+
+.menu div, .search div, .login div {
+  margin-right: 5px;
+}
+
+.search {
+  margin-left: auto; /* tomará todo el espacio disponible a la izquierda, empujando el contenedor de búsqueda (y, por lo tanto, la lupa y el input) hacia la derecha. */
+  border-right: 1px solid #000;
+  padding-right: 10px; /* Espacio entre la lupa y la línea */
+  margin-right: 10px; /* Espacio entre la línea y el login */
+}
+
+/* Estilos para el icono de busqueda */
+.search-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease; /* Transición suave al cambiar el tamaño */
+}
+
+.search-icon:hover {
+  transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+  color: #ffffff;
+}
+
+.search-input {
+  padding: 8px 15px;
+  font-size: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px; 
+  background-color: rgba(255, 255, 255, 0.8); 
+  transition: all 0.3s ease; 
+  outline: none; 
+  width: 150px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search-input:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.search-input:focus {
+  background-color: #ffffff;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
+}
+
+.login {
+  margin: 10px 0px;
+}
+
+#login-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Estilos para el manejo del aside-bar-menu */
+.close {
+ position: absolute;
+ top: 5px;
+ right: 5px;
+ color: red;
+ padding: 5px;
+ cursor: pointer;
+}
+
+.sidebar-menu {
+  position: fixed; /* Posición fija */
+  top: 0;
+  left: -300px; /* Esto lo coloca fuera de la pantalla por defecto */
+  width: 300px; /* Ancho del menú */
+  height: 100%;
+  background-color: #ffffff;
+  overflow-y: auto; /* Si el contenido excede la altura, será desplazable */
+  transition: 0.3s; /* Animación suave al aparecer */
+  z-index: 1000; /* Se asegura de que esté por encima de otros elementos */
+}
+
+.sidebar-menu.open {
+  left: 0; /* Esto lo mueve a su posición visible */
+}
+
+.sidebar-menu .menu-title {
+  font-weight: bold;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+}
+
+/* Estilos a los li */
+.sidebar-menu li {
+  list-style-type: none;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos al login  */
+#login-content {
+  order: 1;
+}
+
+#title-login{
+  color: #E88224;
+  text-align: center;
+  margin: 30px 0px;
+  font-size: 40px;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto 0; 
+}
+
+#login-form button {
+  padding: 10px 15px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 30px;
+}
+
+.email-password {
+  font-size: 24px;
+}
+
+#login-form input[type="email"], 
+#login-form input[type="password"] {
+  flex: 1;
+  padding: 9px;
+  border: 0px solid #ccc;
+  background-color: rgb(232, 240, 254);
+}
+
+#join {
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  margin-top: 0; 
+}
+
+#join .highlight {
+  color: red; 
+  font-weight: bold; 
+  cursor: pointer;
+}
+
+#img-login {
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto 0; 
+  max-width: 100%; 
+  border-radius: 0 30% 0 0;
+  order: 2;
+}
+
+/* Estilos al registro */
+#register-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#register {
+  background-image: url('../img/register.png');
+  background-size: cover; /* Esto hará que la imagen cubra todo el espacio disponible */
+  background-repeat: no-repeat; /* Esto evitará que la imagen se repita */
+  background-position: center center; /* Esto centrará la imagen en el centro del contenedor */
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  min-height: 100vh; /* Esto asegurará que el contenedor ocupe toda la altura de la vista */
+  box-sizing: border-box;
+}
+
+#img-register {
+  display: none;  /* Estará oculto en dispositivos móviles */
+}
+
+#register-form {
+  position: relative;
+  background-color: rgba(245, 245, 245, 0.8);
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 50%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-register {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  cursor: pointer;
+  color: red;
+  padding: 5px;
+  margin: 10px;
+}
+
+#register-form input[type="name"],
+#register-form input[type="email"], 
+#register-form input[type="password"] {
+  flex: 1;
+  padding: 9px;
+  border: 0px solid #ccc;
+  background-color: rgb(232, 240, 254);
+  border-radius: 5px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Añade un espacio entre cada grupo */
+}
+
+.input-group label {
+  margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
+}
+
+#register-form button{
+  padding: 10px 15px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 30px;
+}
+
+/* Estilos al mensaje de alerta */
+#customAlert {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#customAlert::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);  /* Fondo negro con opacidad del 50% */
+  pointer-events: none;  /* Asegura que el fondo no interfiera con el click */
+}
+
+#customAlert .alert-content {
+  position: relative;
+  padding: 20px;
+  background-color: #fff;
+  z-index: 1;  /* Asegura que el contenido está por encima del fondo */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Sombra alrededor del mensaje */
+  width: 300px;  /* Ancho del mensaje */
+  max-width: 80%;  /* Asegura que el mensaje no sea demasiado grande en pantallas pequeñas */
+}
+
+#customAlert .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: red;
+  font-size: 18px;
+}
+
+#customAlert .close:hover {
+  opacity: 0.7;
+}
+
+/* Estilos para las recetas */
+.recipe {
+  display: inline-block;
+  margin: 10px;
+  box-sizing: border-box; /* Esto hará que el padding y el borde no se sumen al ancho total */
+}
+
+.recipe img {
+  width: 364px;
+  height: 242px;
+  display: block;
+  max-width: 100%;
+}
+
+.recipes-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Una sola columna por defecto */
+  gap: 40px; /* Espacio entre recetas; ajusta según lo que necesites */
+  justify-items: center; /* Centra los elementos horizontalmente en cada celda */
+  width: 80%; /* Ocupa el 80% del ancho de su contenedor */
+  margin: 120px auto; /* Centra horizontalmente .recipes-container */
+}
+
+.fa-heart {
+  color: #000;
+  cursor: pointer;
+}
+
+.fa-heart.active {
+  color: red; /* Color cuando ha sido seleccionado */
+  font-weight: 900; /* Esto cambiará el ícono regular al sólido en Font Awesome 5+ */
+}
+
+.title-recipe {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* Estilos para los iconos de Likes y Comments */
+.icons-container-likes-comments {
+  display: flex;
+  align-items: start;  /* Alinea los ítems al inicio del contenedor. */
+  gap: 15px;  /* Espacio entre el corazón y el comentario. */
+  margin-bottom: 10px;
+}
+
+/* Estilos para el modal de crear un post */
+.comment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-modal {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.container-textarea {
+  position: relative;
+  width: 100%;
+}
+
+.content-textarea {
+  width: 100%;
+  box-sizing: border-box; /*Asegura que los paddings y bordes están incluidos en el ancho */
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical /*Permitir al usuario ajustar el tamaño verticalmente*/
+}
+
+.post-button {
+  margin-top: 10px;
+  float: right; /*Alinea a la derecha*/
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.post-button:hover {
+  background-color: #0056b3; /* Oscurece el color de fondo cuando se pasa el mouse por encima */
+}
+
+.fa-comment {
+  cursor: pointer;
+}
+
+/* Estilos para el diseño del modal de las recetas */
+.recipe-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 70%;
+  max-width: 500px;
+  max-height: 80vh; /* 80% de la altura de la ventana */
+  padding: 20px;
+  background-color: white;
+  position: relative;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.close-botton-modal {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  cursor: pointer;
+  color: red;
+}
+
+/* Estilos para el modal cuando muestra todos los comentarios */
+.commentPostAll {
+  margin: 0;
+  cursor: pointer;
+}
+.posts-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.posts-list {
+  padding: 0;
+}
+
+.li-postComents {
+  position: relative;
+  list-style: none;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  background-color: #fafafa;
+}
+
+.li-postComents:hover {
+  transform: translateY(-5px); /* Efecto "levantar" al pasar el mouse por encima */
+}
+
+/* Este estilo es para que el email en los comentarios se vea como una marca de agua */
+.post-email {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 12px;
+  opacity: 0.6;
+  color: #aaa;
+}
+
+/* Estilos para el boton de editar y eliminar comentarios */
+.fa-pen-to-square, .fa-trash-can {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.fa-pen-to-square {
+  color: #4caf50;
+}
+
+.fa-trash-can {
+  color: #f44336;
+}
+ 
+/* Estilos para el modal de confirmación y edición */
+#customConfirmation, #customEdit {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-content, .edit-content {
+  position: relative; /* Se agrega esto para que el botón close funcione correctamente */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 80%;
+}
+
+#textarea-commentsAll {
+  margin-top: 40px;
+}
+
+#close {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: red;
+  padding: 5px;
+  margin: 5px;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box; 
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical 
+}
+
+#confirm-deleted {
+  margin-top: 40px;
+}
+
+#delete-confirm-button, #save-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+#save-button:hover {
+  background-color: #45a049;
+}
+
+#delete-confirm-button:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para Desktop*/
+@media screen and (min-width: 1024px) {
+  #login-content {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;     
+    height: 100vh;
+  }
+
+  #img-login {
+    order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
+    position: static;
+    border-radius: 0;
+    max-width: 50%;
+    flex: 0 0 50%;
+    height: 100%;
+  }
+
+  #login-form {
+    flex: 0 0 50%;
+    order: 2; /* Cambia el orden para que el formulario se muestre a la derecha */
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .email-container, .password-container {
+    margin-bottom: 15px;
+  }
+
+  button[type="submit"] {
+    margin-top: 20px;
+  }
+
+  .search-input {
+    width: 200px; 
+  }
+
+  /* Estilos para el registro */
+  #register {
+    flex-direction: row;
+    background-image: none;  /* Removemos el fondo del contenedor de registro para pantallas grandes */
+  }
+
+  #register-form {
+    width: 50%;  /* Ocupará la mitad derecha de la pantalla */
+    order: 2;
+    background-color: transparent;  /* Esto quitará el fondo en pantallas grandes */
+    box-shadow: none;
+  }
+
+  #img-register {
+    display: block;  /* Lo mostramos en pantallas grandes */
+    background-image: url('../img/register.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 50%;  /* Ocupará la mitad izquierda de la pantalla */
+    height: 100vh;
+    order: 1;
+  }
+
+  /* Estilos para las imagenes de las recetas */
+  .recipes-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas con el mismo ancho */
+  }
+}
+
+@media screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) {
+    .search-input {
+      width: 200px; 
+    }
+}
+
+@media screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1366px) 
+  and (orientation: landscape) {
+    #login-content {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;     
+      height: 100vh;
+    }
+  
+    #img-login {
+      order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
+      position: static;
+      border-radius: 0;
+      max-width: 50%;
+      flex: 0 0 50%;
+      height: 100%;
+    }
+  
+    #login-form {
+      flex: 0 0 50%;
+      order: 2; /* Cambia el orden para que el formulario se muestre a la derecha */
+      box-sizing: border-box;
+      padding: 20px;
+    }
+  
+    .email-container, .password-container {
+      margin-bottom: 15px;
+    }
+  
+    button[type="submit"] {
+      margin-top: 20px;
+    }
+
+    .search-input {
+      width: 200px; 
+    }
+}
