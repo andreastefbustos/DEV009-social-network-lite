@@ -103,6 +103,15 @@ html, body {
 }
 
 /* Estilos para el manejo del aside-bar-menu */
+.close {
+ position: absolute;
+ top: 5px;
+ right: 5px;
+ color: red;
+ padding: 5px;
+ cursor: pointer;
+}
+
 .sidebar-menu {
   position: fixed; /* Posición fija */
   top: 0;

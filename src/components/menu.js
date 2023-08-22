@@ -25,6 +25,7 @@ export const createMenu = () => {
   const asideMenu = document.createElement('aside');
   asideMenu.classList.add('sidebar-menu');
   asideMenu.innerHTML = `
+  <i class="close fa-solid fa-circle-xmark"></i>
   <h1 class="menu-title">Recipes</h1>
   <ul>
     <li id='all' class='category-item'>View All</li>
@@ -53,16 +54,15 @@ export const createMenu = () => {
   nav.append(div1, div2);
   document.body.appendChild(asideMenu);
 
-  // Funcionalidad para ocultar el menu
+  // Funcionalidad para mostrar el menu
   div1.addEventListener('click', () => {
     asideMenu.classList.toggle('open');
   });
 
-  // Ocultar el menú al hacer clic fuera de él
-  document.addEventListener('click', (event) => {
-    if (!asideMenu.contains(event.target) && !div1.contains(event.target)) {
-      asideMenu.classList.remove('open');
-    }
+  // Evento al icono de la x para ocultar el aside menu
+  const closeMenuAside = document.querySelector('.close');
+  closeMenuAside.addEventListener('click', () => {
+    asideMenu.classList.remove('open');
   });
 
   // Filtros por flavors
