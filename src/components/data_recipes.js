@@ -1,7 +1,16 @@
+import imgEnsaladaAlkalina from '../img/recipes/ensalada-alkalina.png';
+import imgPastaCremosa from '../img/recipes/pasta-cremosa.png';
+import imgPescado from '../img/recipes/pescado.png';
+import imgTortillaAtun from '../img/recipes/tortilla-atun.png';
+import imgAvenaProteica from '../img/recipes/avena-proteica.png';
+import imgPanquecasAvena from '../img/recipes/pancakes-avena.png';
+import imgPanquecasCurcuma from '../img/recipes/pancakes-curcuma.png';
+import imgYogurtGriego from '../img/recipes/yogurt-griego.png';
+
 export const recipes = [
   {
     id: 1,
-    imageUrl: '../img/recipes/ensalada-alkalina.png',
+    imageUrl: imgEnsaladaAlkalina,
     title: 'Ensalada Alkalina',
     likes: [],
     comments: [],
@@ -21,7 +30,7 @@ export const recipes = [
   },
   {
     id: 2,
-    imageUrl: '../img/recipes/pasta-cremosa.png',
+    imageUrl: imgPastaCremosa,
     title: 'Pasta de zucchini con atún',
     likes: [],
     comments: [],
@@ -46,7 +55,7 @@ export const recipes = [
   },
   {
     id: 3,
-    imageUrl: '../img/recipes/pescado.png',
+    imageUrl: imgPescado,
     title: 'Pescado con aderezo y platano',
     likes: [],
     comments: [],
@@ -72,7 +81,7 @@ export const recipes = [
   },
   {
     id: 4,
-    imageUrl: '../img/recipes/tortilla-atun.png',
+    imageUrl: imgTortillaAtun,
     title: 'Tortilla de Atún',
     likes: [],
     comments: [],
@@ -96,7 +105,7 @@ export const recipes = [
   },
   {
     id: 5,
-    imageUrl: '../img/recipes/avena-proteica.png',
+    imageUrl: imgAvenaProteica,
     title: 'Avena Protéica',
     likes: [],
     comments: [],
@@ -119,7 +128,7 @@ export const recipes = [
   },
   {
     id: 6,
-    imageUrl: '../img/recipes/pancakes-avena.png',
+    imageUrl: imgPanquecasAvena,
     title: 'Pancakes de Avena',
     likes: [],
     comments: [],
@@ -144,7 +153,7 @@ export const recipes = [
   },
   {
     id: 7,
-    imageUrl: '../img/recipes/pancakes-curcuma.png',
+    imageUrl: imgPanquecasCurcuma,
     title: 'Pancakes de cúrcuma',
     likes: [],
     comments: [],
@@ -172,7 +181,7 @@ export const recipes = [
   },
   {
     id: 8,
-    imageUrl: '../img/recipes/yogurt-griego.png',
+    imageUrl: imgYogurtGriego,
     title: 'Bowl de yogurt griego',
     likes: [],
     comments: [],
