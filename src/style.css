@@ -218,7 +218,6 @@ html, body {
 }
 
 #register {
-  background-image: url('../img/register.png');
   background-size: cover; /* Esto hará que la imagen cubra todo el espacio disponible */
   background-repeat: no-repeat; /* Esto evitará que la imagen se repita */
   background-position: center center; /* Esto centrará la imagen en el centro del contenedor */

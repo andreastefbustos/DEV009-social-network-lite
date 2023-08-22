@@ -6,7 +6,7 @@ import imgRegister from '../img/register.png';
 export const registerPage = (navigateTo) => {
   const registerForm = document.createElement('div');
   registerForm.innerHTML = `
-  <div id="register" style={{ backgroundImage: ${imgRegister} }}>
+  <div id="register"}}>
     <i class="close-register fa-solid fa-circle-xmark"></i>
     <img id="img-register" src=${imgRegister} alt="register">
     <form id="register-form" autocomplete="off">
@@ -31,6 +31,8 @@ export const registerPage = (navigateTo) => {
    </form>
 </div>
 `;
+  const registerDiv = registerForm.querySelector('#register');
+  registerDiv.style.backgroundImage = `url(${imgRegister})`;
 
   // Evento de envío para el formulario de registro
   registerForm.querySelector('#register-form').addEventListener('submit', (event) => {
