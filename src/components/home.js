@@ -36,11 +36,7 @@ export const home = (navigateTo) => {
   header.appendChild(createLoginArea(navigateTo));
 
   // Añade el header al cuerpo del documento
-  homePage.appendChild(header);
-  homePage.appendChild(recipesContainer);
-
-  // Añade el asideMenu al body
-  document.body.appendChild(menuComponents.asideMenuElement);
+  homePage.append(header, recipesContainer, menuComponents.asideMenuElement);
 
   return homePage;
 };
