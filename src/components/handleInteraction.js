@@ -1,4 +1,4 @@
-import { isUserLoggedIn } from './auth';
+import { isUserLoggedIn } from './userLoggedIn';
 import { getLoggedInUser } from '../lib/index';
 import { openCommentModal } from './createPostModal';
 import { openCommentsModal } from './createCommentsModal';

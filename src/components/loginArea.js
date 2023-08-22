@@ -1,4 +1,15 @@
-import { isUserLoggedIn, handleLoginClick } from './auth';
+import { isUserLoggedIn } from './userLoggedIn';
+import { logout } from '../lib/index';
+
+const handleLoginClick = (event, navigateTo) => {
+  event.preventDefault();
+  if (isUserLoggedIn()) {
+    logout();
+    navigateTo('/');
+  } else {
+    navigateTo('/login');
+  }
+};
 
 export const createLoginArea = (navigateTo) => {
   const login = document.createElement('div');
@@ -7,22 +18,22 @@ export const createLoginArea = (navigateTo) => {
   const div4 = document.createElement('div');
   div4.innerHTML = '<i class="fa-regular fa-user"></i>';
 
-  const a = document.createElement('a');
-  a.id = 'login-link';
-  a.href = '';
+  const loginLink = document.createElement('a');
+  loginLink.id = 'login-link';
+  loginLink.href = '';
 
   const updateLoginLink = () => {
     if (isUserLoggedIn()) {
-      a.innerHTML = 'Logout';
+      loginLink.innerHTML = 'Logout';
     } else {
-      a.innerHTML = 'Login';
+      loginLink.innerHTML = 'Login';
     }
   };
 
   updateLoginLink();
 
-  a.addEventListener('click', (event) => handleLoginClick(event, navigateTo));
+  loginLink.addEventListener('click', (event) => handleLoginClick(event, navigateTo));
 
-  login.append(div4, a);
+  login.append(div4, loginLink);
   return login;
 };

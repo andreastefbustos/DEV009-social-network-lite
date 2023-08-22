@@ -1,4 +1,4 @@
-import { isUserLoggedIn } from './auth';
+import { isUserLoggedIn } from './userLoggedIn';
 
 export const createRecipeModal = (recipe) => {
   if (isUserLoggedIn()) {
