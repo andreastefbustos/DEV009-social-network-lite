@@ -6,9 +6,9 @@ import imgRegister from '../img/register.png';
 export const registerPage = (navigateTo) => {
   const registerForm = document.createElement('div');
   registerForm.innerHTML = `
-  <div id="register">
+  <div id="register" style={{ backgroundImage: ${imgRegister} }}>
     <i class="close-register fa-solid fa-circle-xmark"></i>
-    <img id="img-register" src=${imgRegister} alt="login">
+    <img id="img-register" src=${imgRegister} alt="register">
     <form id="register-form" autocomplete="off">
       <h1 id="register-title">Create an account</h1>
       
