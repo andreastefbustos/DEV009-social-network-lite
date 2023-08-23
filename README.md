@@ -1,527 +1,260 @@
-# Creando una Red Social
+# VitalDish
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+* [1. Definición del producto](#1-definición-del-producto)
+* [2. Quiénes son los principales usuarios de producto.](#2-usuarios)
+* [3. Qué problema resuelve el producto / para qué le servirá a estos usuarios.?](#3-resolución-de-problemas)
+* [4. Funcionalidades](#4-funcionalidades)
+* [5. Historias de Usuario](#5-historias-de-usuario)
+* [6. Prototipos de alta fidelidad](#6-prototipo-de-alta-fidelidad)
+* [7. Resultados de test de usuabilidad](#7-test-usabilidad)
+* [8. Planificación del Proyecto](#8-planificación-del-proyecto)
 
-## 1. Preámbulo
+## 1. Definición del producto
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+En la actualidad, la salud y la nutrición han cobrado una importancia sin precedentes. Cada vez más personas buscan adoptar estilos de vida saludables, pero con la rutina diaria y el constante bombardeo de opciones de comida rápida, puede ser un desafío preparar comidas nutritivas en casa. Aquí es donde entra mi aplicación.
 
-![adem-ay-Tk9m_HP4rgQ-unsplash](https://user-images.githubusercontent.com/110297/135544666-4efa54f1-4ff6-4c4c-b398-6df04ef56117.jpg)
+Creada con pasión y compromiso, esta aplicación es el resultado de mi deseo personal de contribuir a una comunidad más saludable y consciente. A través de una interfaz sencilla y amigable, los usuarios pueden descubrir, compartir y discutir recetas que no sólo son deliciosas, sino también nutritivas. Pero no es solo una aplicación de recetas; es una comunidad, un espacio para aprender, inspirarse y comprometerse con una alimentación saludable.
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+¡Espero que disfrutes de esta plataforma tanto como yo disfruté creándola!
 
-## 2. Resumen del proyecto
+![vital-dish](./src/img/vitalDish2.jpeg)
 
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco),
-de la [Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
+### Características Principales:
 
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de acceso
-y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
+1. **Registro y Acceso:** Cualquier persona puede crear una cuenta y acceder con ella para ser parte activa de la comunidad.
+2. **Interactividad:** Los usuarios pueden crear, editar y borrar publicaciones relacionadas con recetas saludables. Además, si te gusta alguna receta en particular, ¡puedes mostrar tu aprecio dándole "like"!
+3. **Single-page Application (SPA):** Mi plataforma es una aplicación de una sola página que es responsive, asegurando una experiencia fluida y adaptable a cualquier dispositivo.
 
-Por lo tanto, en este proyecto construirás una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://curriculum.laboratoria.la/es/topics/css/02-responsive) (con más de una vista / página)
-en la que podamos **leer y escribir datos**.
+## 2. Quiénes son los principales usuarios de producto.
 
-### Los objetivos generales de este proyecto son los siguientes
+* ***Entusiastas de la Salud:*** Individuos que están constantemente buscando mejorar su estilo de vida a través de la alimentación. Estas personas pueden estar interesadas en encontrar nuevas recetas saludables, compartir las suyas y discutir sobre ingredientes y técnicas de cocina.
 
-* Desarrollar una SPA con temática de red social
-* Aplicar los conceptos de responsividad en el desarrollo de las vistas (templates)
-* Implementar un router para la navegación entre las diferentes vistas de la aplicación
-* Emplear un servicio externo para la persistencia de datos de la aplicación
-* Crear una suite de pruebas unitarias que permitan testear código asíncrono
+* ***Principiantes en la Cocina:*** Aquellas personas que quizás no tengan mucha experiencia cocinando pero desean aprender y buscan recetas sencillas y saludables para empezar.
 
-Para lograr estos objetivos, deberás aprender y hacer uso de las siguientes
-herramientas o habilidades técnicas:
+* ***Deportistas y Fitness:*** Aquellos que llevan un régimen de entrenamiento y buscan comidas que se alineen con sus objetivos físicos y nutricionales.
 
-## 3. Objetivos de aprendizaje
+* ***Personas con Condiciones de Salud Específicas:*** Individuos que, por razones de salud, necesitan seguir una dieta específica y están en busca de recetas que se ajusten a sus necesidades.
 
-Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
+* ***Vegetarianos, Veganos y Otros Regímenes Alimenticios:*** Personas que siguen dietas específicas y buscan diversificar sus platos mientras mantienen sus principios alimenticios.
 
-### HTML
+* ***Familias:*** Padres y madres que buscan preparar comidas saludables para sus hijos y toda la familia.
 
-- [ ] **Uso de HTML semántico**
+* ***Personas en Transición a un Estilo de Vida Saludable:*** Aquellos que han decidido hacer cambios en su dieta y estilo de vida y buscan una comunidad y recursos para apoyar ese cambio.
 
-  <details><summary>Links</summary><p>
 
-  * [HTML semántico](https://curriculum.laboratoria.la/es/topics/html/02-html5/02-semantic-html)
-  * [Semantics - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-</p></details>
+## 3. Qué problema resuelve el producto / para qué le servirá a estos usuarios?
 
-### CSS
+* ***Falta de Inspiración para Cocinar Saludable:*** Uno de los mayores desafíos al tratar de comer sano es no caer en la monotonía. Mi aplicación proporciona a los usuarios una variedad de recetas saludables, evitando que se aburran y abandonen su objetivo de alimentarse bien.
 
-- [ ] **Uso de selectores de CSS**
+* ***Desconocimiento Nutricional:*** No todas las personas tienen conocimientos sobre nutrición. Al proveer detalles nutricionales de cada receta, mi aplicación educa a los usuarios sobre lo que consumen, ayudándoles a tomar decisiones informadas.
 
-  <details><summary>Links</summary><p>
+* ***Dificultad en Encontrar Recetas Específicas:*** Personas con dietas o necesidades específicas (como veganos, celíacos o diabéticos) a menudo tienen dificultades en encontrar recetas que se adapten a sus requerimientos. Mi plataforma podría ofrecer filtros o categorías que simplifiquen esta búsqueda.
 
-  * [Intro a CSS](https://curriculum.laboratoria.la/es/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
-</p></details>
+* ***Necesidad de Comunidad y Soporte:*** Adoptar o mantener un estilo de vida saludable puede ser desafiante. Al permitir a los usuarios compartir, comentar y "likear" recetas, se crea una comunidad donde pueden apoyarse mutuamente, compartir consejos y motivarse.
 
-- [ ] **Modelo de caja (box model): borde, margen, padding**
+* ***Ahorro de Tiempo:*** En la era digital, la gente busca soluciones rápidas y fáciles. En lugar de pasar horas buscando recetas en diferentes sitios web o libros, mi aplicación centraliza esta información, ahorrándoles tiempo.
 
-  <details><summary>Links</summary><p>
+* ***Transición a Hábitos Saludables:*** Para aquellos en transición a un estilo de vida más saludable, mi aplicación sirve como una herramienta integral, ofreciendo recursos, comunidad y conocimiento en un solo lugar.
 
-  * [Box Model & Display](https://curriculum.laboratoria.la/es/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
+En resumen, mi producto sirve como un recurso integral para aquellos que buscan llevar una vida más saludable a través de la alimentación. Facilita la búsqueda y adaptación de recetas, educa en aspectos nutricionales, fomenta una comunidad de apoyo y ayuda en la transición y mantenimiento de hábitos alimenticios saludables.
 
-- [ ] **Uso de flexbox en CSS**
+## 4. Funcionalidades
 
-  <details><summary>Links</summary><p>
+1. Registro de Usuario:
 
-  * [A Complete Guide to Flexbox - CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-  * [Flexbox Froggy](https://flexboxfroggy.com/#es)
-  * [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-</p></details>
+* Permite a los nuevos usuarios crear una cuenta con una dirección de correo electrónico y contraseña.
 
-- [ ] **Uso de CSS Grid Layout**
+2. Autenticación de Usuario:
 
-  <details><summary>Links</summary><p>
+* Permite a los usuarios existentes ingresar a su cuenta utilizando su correo electrónico y contraseña.
 
-  * [A Complete Guide to Grid - CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
-  * [Grids - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)
-</p></details>
+3. Filtros:
 
-### Web APIs
+* Filtrar recetas según diferentes sabores (dulce, salado, dulce y salado).
+* Opción de filtrar según el momento del día o tipo de comida (desayuno, almuerzo, cena, snack).
 
-- [ ] **Uso de selectores del DOM**
+4. Búsqueda:
 
-  <details><summary>Links</summary><p>
+* Capacidad de buscar por nombre de receta.
 
-  * [Manipulación del DOM](https://curriculum.laboratoria.la/es/topics/browser/02-dom/03-1-dom-methods-selection)
-  * [Introducción al DOM - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Localizando elementos DOM usando selectores - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors)
-</p></details>
+5. Detalle Completo de Receta:
 
-- [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
+* Al seleccionar el título de una receta, se accede a una página detallada.
+* Visualización de ingredientes necesarios y cantidades.
+* Instrucciones paso a paso.
 
-  <details><summary>Links</summary><p>
+6. Interacción:
 
-  * [Introducción a eventos - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events)
-  * [EventTarget.addEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener)
-  * [EventTarget.removeEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/removeEventListener)
-  * [El objeto Event](https://developer.mozilla.org/es/docs/Web/API/Event)
-</p></details>
+* Los usuarios pueden dar "like" o reaccionar a las recetas.
+* Sección de comentarios donde los usuarios pueden compartir sus experiencias, modificaciones o preguntas sobre la receta.
+* Posibilidad de editar o eliminar sus propios comentarios.
 
-- [ ] **Manipulación dinámica del DOM**
+### Cómo usar la aplicación
 
-  <details><summary>Links</summary><p>
+1. Comienza tu experiencia accediendo a la aplicación [aquí](https://moonlit-pasca-e1a4fa.netlify.app)
+2. Una vez dentro, descubrirás una gama de recetas. Sin embargo, para interactuar más a fondo con ellas (como ver detalles, comentar o dar 'like'), necesitarás iniciar sesión. 
+3. Si eres nuevo en la plataforma, dirígete a la sección de registro. Introduce tu nombre, dirección de correo electrónico y una contraseña. Al completar el registro con éxito, serás redireccionado a la página de inicio de sesión.
+4. Después de iniciar sesión, podrás acceder a la totalidad de la experiencia. Haz clic en el título de cualquier receta para descubrir más sobre ella. 
+5. Si una receta te captura, muestra tu aprecio con un 'like' haciendo clic en el icono del corazón.
+6. Comparte tus pensamientos o dudas usando el icono de la nube para comentar. 
+7. Al seleccionar "View all comments", podrás observar todas las opiniones de la comunidad. Si el comentario es de tu autoría, tendrás opciones para editar o eliminar tu aporte.
+8. En la esquina superior izquierda, encontrarás un ícono de menú tipo hamburguesa. Al hacer clic, se despliega un menú lateral que te permite filtrar recetas por sabores y momentos del día, adaptándose a tus gustos.
+9. ¿Buscas algo específico? Utiliza el campo de búsqueda en la esquina superior derecha para localizar recetas por nombre. 
+10. Cuando desees concluir tu experiencia, simplemente haz clic en el ícono de cerrar sesión.
 
-  * [Introducción al DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Node.appendChild() - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/appendChild)
-  * [Document.createElement() - MDN](https://developer.mozilla.org/es/docs/Web/API/Document/createElement)
-  * [Document.createTextNode()](https://developer.mozilla.org/es/docs/Web/API/Document/createTextNode)
-  * [Element.innerHTML - MDN](https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML)
-  * [Node.textContent - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/textContent)
-</p></details>
+### Diseño de la página
 
-- [ ] **Ruteado (History API, evento hashchange, window.location)**
+#### Selección Cromática
 
-  <details><summary>Links</summary><p>
+Para VitalDish, decidí apostar por esta gama cromática debido a:
 
-  * [Manipulando el historial del navegador - MDN](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-</p></details>
+* Su resonancia con la temática saludable y fresca de nuestros platos.
+* La habilidad para destacar y complementar visualmente el contenido nutritivo.
+* El equilibrio sofisticado y depurado que transmite a cada usuario.
+* El contraste armónico que facilita una experiencia de lectura agradable.
 
-### JavaScript
+<img width="200" src="./src/img/selección_cromática.png">
 
-- [ ] **Arrays (arreglos)**
+### Tipografía utilizada
 
-  <details><summary>Links</summary><p>
+Se quizo transmitir sensaciones como frescura, naturaleza, bienestar y autenticidad, utilizando 'Times New Roman', Times, serif para todo el contenido de la aplicación.
 
-  * [Arreglos](https://curriculum.laboratoria.la/es/topics/javascript/04-arrays)
-  * [Array - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/)
-  * [Array.prototype.sort() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
-  * [Array.prototype.forEach() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-  * [Array.prototype.map() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-  * [Array.prototype.filter() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-  * [Array.prototype.reduce() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
-</p></details>
+### Iconografía
 
-- [ ] **Objetos (key, value)**
+Se utilizaron algunos íconos en el proyecto, la cual fueron tomados de la siguiente página:
 
-  <details><summary>Links</summary><p>
+[Iconos](https://fontawesome.com/)
 
-  * [Objetos en JavaScript](https://curriculum.laboratoria.la/es/topics/javascript/05-objects/01-objects)
-</p></details>
+### Tecnologías utilizadas
 
-- [ ] **Diferenciar entre tipos de datos primitivos y no primitivos**
+En el desarrollo de este proyecto, se empleo las piedras angulares del desarrollo web moderno: `JavaScript`, `HTML` y `CSS`. Estas herramientas, cada una con un propósito específico, confluyen para generar sitios web que no solo son visualmente atractivos sino también interactivos y funcionales.
 
-- [ ] **Variables (declaración, asignación, ámbito)**
+***HTML (HyperText Markup Language)*** actúa como el esqueleto de una página web, proporcionando la estructura básica. Es el lenguaje de marcado con el que definimos y organizamos los elementos esenciales, como encabezados, párrafos, imágenes y enlaces.
 
-  <details><summary>Links</summary><p>
+***CSS (Cascading Style Sheets)*** es el alma artística detrás de la web, encargándose de la estética y el diseño visual. A través de CSS, especificamos estilos, colores, fuentes, espaciado y la disposición general de los elementos HTML, asegurando una presentación visualmente armoniosa y atractiva.
 
-  * [Valores, tipos de datos y operadores](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/01-values-variables-and-types)
-  * [Variables](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/02-variables)
-</p></details>
+***JavaScript*** es el motor que impulsa la interacción y dinamismo de un sitio web. Es el lenguaje que nos permite crear acciones reactivas a eventos del usuario, modificar estilos al vuelo, validar formularios y, entre otras cosas, interactuar con servicios web para ofrecer contenido fresco y actual.
 
-- [ ] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
+Al entrelazar estas tres tecnologías, **JavaScript**, **HTML** y **CSS**, logramos una infraestructura robusta para el diseño web. Mientras que JavaScript otorga interactividad y dinamismo, HTML y CSS trabajan en tándem para estructurar y embellecer el contenido.
 
-  <details><summary>Links</summary><p>
+Además, en este proyecto se incorporó el uso del **Local Storage**. Esta característica fue esencial dado que el objetivo era permitir a los usuarios registrarse, iniciar sesión, comentar, editar, dar 'likes' y eliminar comentarios en el contexto de una Aplicación de Página Única (SPA, por sus siglas en inglés). El Local Storage permitió almacenar y recuperar la información del usuario de manera eficiente y sin necesidad de una base de datos externa.
 
-  * [Estructuras condicionales y repetitivas](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/01-conditionals-and-loops)
-  * [Tomando decisiones en tu código — condicionales - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/conditionals)
-</p></details>
+### Control de versiones
 
-- [ ] **Uso de bucles/ciclos (while, for, for..of)**
+Se ha utilizado Git como sistema de control de versiones para mantener un registro detallado de los cambios realizados en el proyecto.
 
-  <details><summary>Links</summary><p>
+## 5. Historias de Usuario
 
-  * [Bucles (Loops)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/02-loops)
-  * [Bucles e iteración - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration)
-</p></details>
+### 5.1 Historia de Usuario #1 - Inicio de Sesión
 
-- [ ] **Funciones (params, args, return)**
+***Como usuario*** de "VitalDish",
+***Quiero*** poder iniciar sesión en la aplicación,
+***Para*** acceder a una variedad de recetas saludables personalizadas según mis preferencias.
 
-  <details><summary>Links</summary><p>
+### Criterios de Aceptación
 
-  * [Funciones (control de flujo)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/03-functions)
-  * [Funciones clásicas](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/01-classic)
-  * [Arrow Functions](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/02-arrow)
-  * [Funciones — bloques de código reutilizables - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions)
-</p></details>
+* Cuando el usuario entra en la aplicación, debo ver una opción para iniciar sesión.
+* Debe de poder iniciar sesión utilizando su correo electrónico y contraseña.
+* Si todavía el usuario no ha registrado en la página, podrá crear una cuenta con su correo electrónico y crear una contraseña.
+* Si ingreso la información de inicio de sesión incorrectamente, debe de recibir un mensaje de error, comunicandole que su usuario ó contraseña es inválida.
+* Si ingreso la información de inicio de sesión correctamente, deberá ser dirigido a la página principal con las recetas.
 
-- [ ] **Pruebas unitarias (unit tests)**
+### Definición de terminado
 
-  <details><summary>Links</summary><p>
+* La página de inicio de sesión es parte de una aplicación de una sola página (SPA).
+* La página de inicio de sesión es responsive y se ve bien en diferentes tamaños de pantalla.
+* Se han realizado pruebas unitarias para validar la funcionalidad y se han corregido todos los errores identificados.
+* Se han realizado pruebas manuales para identificar y corregir errores e imperfecciones.
+* Se han realizado pruebas de usabilidad y se ha incorporado el feedback de los usuarios para mejorar la interfaz y experiencia de usuario.
+* La aplicación con la funcionalidad de inicio de sesión ha sido desplegada y se ha etiquetado la versión correspondiente con git tag.
 
-  * [Empezando con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/getting-started)
-</p></details>
+### 5.2 Historia de Usuario #1 - Muro/timeline
 
-- [ ] **Pruebas asíncronas**
+***Como usuario*** de "VitalDish",
+***Quiero*** poder crear un post, editar, eliminar y dar like a las recetas,
+***Para*** poder hacer un aporte a la comunidad de vitalDish. 
 
-  <details><summary>Links</summary><p>
+### Criterios de Aceptación
 
-  * [Tests de código asincrónico con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/asynchronous)
-</p></details>
+1. Validaciones:
 
-- [ ] **Uso de mocks y espías**
+* Al publicar, se debe validar que exista contenido en el input.
 
-  <details><summary>Links</summary><p>
+2. Comportamiento:
 
-  * [Manual Mocks con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/manual-mocks)
-</p></details>
+* Al recargar la aplicación, se debe verificar si el usuario está logueado antes de mostrar contenido.
+* Poder dar like a cada receta.
+* Poder publicar un post.
+* Poder eliminar un post específico.
+* Pedir confirmación antes de eliminar un post.
+* Al dar click para editar un post, debe cambiar el texto por un input que permita editar el texto y luego guardar los cambios.
+* Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la información editada.
+* Al recargar la página debo de poder ver los textos editados.
 
-- [ ] **Módulos de ECMAScript (ES Modules)**
+### Definición de terminado
 
-  <details><summary>Links</summary><p>
+* Debe ser una SPA.
+* Debe ser responsive.
+* Test unitarios
+* Se testeo manualmente buscando errores e imperfecciones simples.
+* Pruebas de usabilidad e incorporaron el feedback de los usuarios como mejoras.
+* Despliegue de la aplicación
 
-  * [import - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import)
-  * [export - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export)
-</p></details>
+## 6. Prototipos de alta fidelidad
 
-- [ ] **Uso de linter (ESLINT)**
+Con su respectivo feedback
 
-- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
+* [Figma-Desktop](https://www.figma.com/proto/C4ZQz1gC8XzDlheNG8OGiP/desktop?type=design&node-id=1-2&t=rsTzCCANzCPOGsRc-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2)
 
-- [ ] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
+<img width="500" src="./src/img/home-desktop.png">
+<img width="500" src="./src/img/login-desktop.png">
+<img width="500" src="./src/img/register-desktop.png">
 
-- [ ] **Callbacks**
+* [Figma-Mobile](https://www.figma.com/proto/dCSQtBhl2q1pOESS8XgF14/Social-Network-VitalDish?type=design&node-id=15-170&t=3YwoEtraIU1lDoMD-0&scaling=scale-down&page-id=0%3A1)
 
-  <details><summary>Links</summary><p>
 
-  * [Función Callback - MDN](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
-</p></details>
+<img width="200" src="./src/img/home-mobile.png">
+<img width="200" src="./src/img/login-mobile.png">
+<img width="200" src="./src/img/register-mobile.png">
 
-- [ ] **Promesas**
 
-  <details><summary>Links</summary><p>
+## 7. Resultados de test de usuabilidad
 
-  * [Promise - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-  * [How to Write a JavaScript Promise - freecodecamp (en inglés)](https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/)
-</p></details>
+El principal objetivo de los tests de usabilidad era evaluar tanto la facilidad de uso como la experiencia del usuario en la plataforma, **VitalDish**. Con la intención de obtener una evaluación detallada, invité a un grupo diverso de usuarios para que interactuaran con las características principales de la plataforma. Se les pidió que realizaran tareas específicas relacionadas con la exploración de platos saludables, la interacción con comentarios, dar 'likes', editar y eliminar opiniones, y el proceso de registro y login, todo ello bajo el formato de una SPA (Single Page Application).
 
-### Control de Versiones (Git y GitHub)
+El feedback que se obtuvo fue fundamental. La cual permitió ver cómo los usuarios se adentraban en la experiencia de descubrir platos saludables, cómo se sentían al interactuar con los comentarios y las posibles dificultades o puntos de fricción que encontraban durante su navegación. Esta retroalimentación proporcionó un mapa claro de las áreas en las que se puede optimizar y mejorar.
 
-- [ ] **Git: Instalación y configuración**
+Usando la versión auténtica de **VitalDish** durante las pruebas, se garantizo feedback directo y tangible. Las reacciones y observaciones de los participantes dieron una comprensión profunda de las áreas que requerían atención y refinamiento, permitiéndo realizar ajustes en aspectos como el diseño, la navegabilidad y la interactividad.
 
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
+Para llevar a cabo estas pruebas, se empleo la herramienta Jotform: [VitalDish Test](https://form.jotform.com/232341518753051), diseñada específicamente para evaluar y capturar la experiencia del usuario en nuestra plataforma.
 
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
+#### Las preguntas realizadas fueron:
 
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
+1. ¿Fue fácil acceder a la aplicación a través del enlace proporcionado?
+2. Una vez dentro de la aplicación, ¿te resultó claro que necesitabas iniciar sesión para acceder a ciertas funcionalidades?
+3. ¿Te resultó claro cómo registrarte en la plataforma?
+4. ¿El proceso de registro e inicio de sesión fue intuitivo y fluido?
+5. Después de iniciar sesión, ¿sentiste que se desbloquearon más funcionalidades?
+6. ¿Fue fácil acceder a los detalles de una receta haciendo clic en su título?
+7. ¿Lograste identificar y usar el icono del corazón para dar 'like' a una receta?
+8. ¿Cómo fue tu experiencia al comentar en una receta utilizando el icono de la nube?
+9. ¿Fue sencillo encontrar y hacer clic en "View all comments"?. Si dejaste un comentario, ¿te resultó claro cómo editarlo o eliminarlo?
+10. ¿Qué opinas sobre el ícono de menú tipo hamburguesa en la esquina superior izquierda? ¿Fue fácil de identificar y usar?. Al desplegar este menú, ¿te parecieron adecuadas las opciones de filtrado por sabores y momentos del día?
+11. ¿Encontraste fácilmente el ícono para cerrar sesión?. ¿El proceso de cerrar sesión fue sencillo y claro?
+12. General: ¿Hay alguna funcionalidad que te haya parecido complicada o poco intuitiva?¿Qué funcionalidad te pareció la más útil o la que más te gustó?¿Tienes alguna sugerencia o comentario adicional sobre la plataforma?
 
-- [ ] **GitHub: Despliegue con GitHub Pages**
+Dando un [reporte](https://www.jotform.com/report/23234674124304823?st=WFdRUDMxT25NYXY1VXNHYUZsUmlhMVIrYnJETG1MZWVUZVVzc3Q2VTVnZUdicFl6NG9PY1M5WjlISi9UeFVGUTFuODJVVmdncUdWekY5U1VURll6cllSTktRMlhkQmZuUDJoNDNpUG91YWs5alBlMW9LSTIwZlUyZzVwNmRscXM=) detallado.
 
-  <details><summary>Links</summary><p>
+## 8. Planificación del Proyecto
 
-  * [Sitio oficial de GitHub Pages](https://pages.github.com/)
-</p></details>
+Una de las claves fundamentales para el éxito de nuestro proyecto "VitalDish" ha sido una planificación meticulosa y una gestión efectiva de las tareas. Para alcanzar este nivel de organización, me apoye en la potente herramienta que ofrece GitHub: GitHub Project.
 
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
+Empece dividiendo todo el trabajo en tareas específicas, lo cual me permitió tener una visión granular de todos los componentes del proyecto y las etapas requeridas para su implementación. Estas tareas se organizaban inicialmente bajo la columna "Todo", que funcionaba como un repositorio de todas las acciones pendientes, permitiéndo identificar claramente los pasos iniciales y futuros.
 
-- [ ] **GitHub: Organización en Github (projects | issues | labels | milestones | releases)**
+A medida de que comenzaba a trabajar en cada tarea, estas se movían a la columna "In Process". Esto no solo me proporcionaba una visualización clara del progreso en tiempo real, sino que también permitía evitar duplicar tareas.
 
-### Centrado en el usuario
+Finalmente, una vez completadas, las tareas se trasladaban a la columna "Done". Esta transición representaba un hito significativo y era un recordatorio constante de los logros y avances hacia la finalización del proyecto.
 
-- [ ] **Diseñar y desarrollar un producto o servicio poniendo a las usuarias en el centro**
-
-### Diseño de producto
-
-- [ ] **Crear prototipos de alta fidelidad que incluyan interacciones**
-
-- [ ] **Seguir los principios básicos de diseño visual**
-
-### Investigación
-
-- [ ] **Planear y ejecutar testeos de usabilidad de prototipos en distintos niveles de fidelidad**
-
-  <details><summary>Links</summary><p>
-
-  * [Intro a testeos usabilidad](https://coda.io/@bootcamp-laboratoria/contenido-ux/test-de-usabilidad-15)
-  * [Pruebas con Usuarios 1 — ¿Qué, cuándo y para qué testeamos?](https://eugeniacasabona.medium.com/pruebas-con-usuarios-1-qu%C3%A9-cu%C3%A1ndo-y-para-qu%C3%A9-testeamos-7c3a89b4b5e7)
-</p></details>
-
-## 4. Consideraciones generales
-
-* La lógica del proyecto debe estar implementada completamente en JavaScript
-  (ES6+), HTML y CSS :smiley:. Para este proyecto **no está permitido** utilizar
-  _frameworks_ o librerías de CSS y JS.
-
-* Solamente pueden trabajar en una única historia por vez, no pueden avanzar a
-  la siguiente sin haber completado la anterior. La historia se completa cuando
-  se cumplen **todos** sus Criterios de Aceptación + **toda** su Definición
-  de Terminado.
-
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
-
-## 5. Criterios de aceptación mínimos del proyecto
-
-### 5.1 Boilerplate
-
-Este proyecto no incluye un _boilerplate_ completo, solo algunos archivos de
-configuración basico, así es que tendrás que definir la estructura de carpetas
-y escribir tus propias Pruebas Unitarias (_tests_). Para hacerlo, puedes guiarte
-de los proyectos anteriores y/o organizar los archivos siguiendo una estructura
-de [Modelo-Vista-Controlador](https://developer.mozilla.org/es/docs/Glossary/MVC).
-
-En este proyecto vamos a usar una herramienta llamada
-[Vite](https://es.vitejs.dev/) para empaquetar nuestros módulos y arrancar
-el servidor de desarrollo, el cual provee nuestros archivos utilizando
-la estrategia `Hot Module Replacement`
-[(HMR)](https://es.vitejs.dev/guide/features.html#hot-module-replacement),
-esto significa que cuando hagas cambios en los archivos que estén siendo
-servidos, el navegador automáticamente se actualizará sin tener que refrescar
-y volver a cargar todo el sitio. Debes tener especial cuidado de no tener
-ninguna _dependencia circular_ en tu código ya que
-[eso puede ocasionar problemas con HMR](https://es.vitejs.dev/guide/troubleshooting.html#ocurre-un-refresco-completo-en-lugar-de-hmr).
-(`eslint-plugin-import` tiene una regla
-[import/no-cycle](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md)
-que va a avisar si las tiene.)
-
-### 5.2 Definición del producto
-
-En el `README.md` cuéntanos brevemente cómo descubriste las necesidades de los
-usuarios y cómo llegaste a la definición final de tu producto. Es importante
-que detalles:
-
-* Quiénes son los principales usuarios de producto.
-* Qué problema resuelve el producto / para qué le servirá a estos usuarios.
-
-### 5.3 Historias de usuario
-
-Una vez que entiendas las necesidades de tus usuarixs, escribe las Historias de
-Usuario que representen todo lo que necesitan hacer/ver en la Red Social. Cada
-una de tus Historias de Usuario debe tener:
-
-* **Criterios de Aceptación:** todo lo que debe ocurrir para satisfacer las
-  necesidades del usuario.
-
-* **Definición de terminado:** todos los aspectos técnicos que deben cumplirse
-  para que, como equipo, sepan que esa historia está terminada y lista
-  para publicarse. **Todas** tus Historias de Usuario (salvo excepciones), deben
-  incluir estos aspectos en su Definición de Terminado (más todo lo que
-  necesiten agregar):
-
-  - Debe ser una SPA.
-  - Debe ser _responsive_.
-  - Deben haber recibido _code review_ de al menos una compañera de otro equipo.
-  - Hicieron los _test_ unitarios
-  - Testearon manualmente buscando errores e imperfecciones simples.
-  - Hicieron _pruebas_ de usabilidad e incorporaron el _feedback_ de los
-    usuarios como mejoras.
-  - Desplegaron su aplicación y etiquetaron la versión (git tag).
-
-### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
-
-Debes definir cuál será el flujo que seguirá el usuario dentro de tu aplicación
-y, con eso, diseña la Interfaz de Usuario (UI por sus siglas en inglés) que
-siga este flujo.
-
-### 5.5 Responsive
-
-Debe verse bien en dispositivos de pantallas grandes
-(computadoras/es, laptops, etc.) y pequeñas (_tablets_, celulares, etc.). Te
-sugerimos seguir la técnica de [_`mobile first`_](#mobile-first) (más detalles sobre esta técnica
-al final).
-
-### 5.6 Consideraciones del comportamiento de la interfaz de usuario (UI)
-
-Estas consideraciones te ayudarán a escribir las Definiciones de Terminado de
-tus H.U.:
-
-#### Creación de cuenta de usuario e inicio de sesión
-
-* _Login_:
-  - Para el _login_ y las publicaciones en el muro debes utilizar las funciones del archivo `src/lib/services.js`
-  - Creación de cuenta de acceso y autenticación con cuenta de correo y
-    contraseña, y también con una cuenta de Google.
-* Validaciones:
-  - Solamente se permite el acceso a usuarios con cuentas válidas.
-  - No pueden haber usuarios repetidos.
-  - La cuenta de usuario debe ser un correo electrónico válido.
-  - Lo que se escriba en el campo (_input_) de contraseña debe ser secreto.
-* Comportamiento:
-  - Al enviarse el formulario de registro o inicio de sesión, debe validarse.
-  - Si hay errores, se deben mostrar mensajes descriptivos para ayudar al
-  usuario a corregirlos.
-
-#### Muro/timeline
-
-* Validaciones:
-  - Al publicar, se debe validar que exista contenido en el _input_.
-* Comportamiento:
-  - Al recargar la aplicación, se debe verificar si el usuario está _logueado_
-    antes de mostrar contenido.
-  - Poder publicar un _post_.
-  - Poder eliminar un post específico.
-  - Pedir confirmación antes de eliminar un _post_.
-  - Al dar _click_ para editar un _post_, debe cambiar el texto por un _input_
-    que permita editar el texto y luego guardar los cambios.
-  - Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la
-    información editada.
-  - Al recargar la página debo de poder ver los textos editados.
-
-### 5.7 Consideraciones técnicas Front-end
-
-* Separar la manipulación del DOM de la lógica (Separación de responsabilidades).
-* Contar con múltiples vistas. Para esto, tu aplicación debe ser una
- [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-* Alterar y persistir datos. Los datos que agregues o modifiques deberán
-  persistir a lo largo de la aplicación. Usa las funciones del archivo `src/lib/services.js` para esto.
-
-#### Pruebas unitarias (unit tests)
-
-* Recuerda que no hay un _setup_ de **tests** definido, dependerá de
-  la estructura de tu proyecto. Algo que no debes de olvidar es pensar en éstas
-  pruebas, te pueden ayudar a definir la estructura y nomenclatura de tu lógica.
-
-* Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-  _lines_, y _branches_.
-
-### 5.8 Consideraciones técnicas UX
-
-* Hacer al menos 2 entrevistas con usuarios.
-* Hacer un  prototipo de baja y alta fidelidad.
-* Asegurarte de que la implementación en código siga los lineamientos del
-  diseño.
-* Hacer sesiones de _testing de usabilidad_ con el producto en HTML.
-
-## 6. Hacker edition
-
-Las secciones llamadas _Hacker Edition_ son **opcionales**. Si **terminaste**
-con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás
-profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
-
-  * Poder dar y quitar _like_ a una publicación. Máximo uno por usuario.
-  * Llevar un conteo de los _likes_.
-
-## 7. Entrega
-
-El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
-interfaz será desplegada usando GitHub pages u otro servicio de hosting
-(Firebase, Netlify, Vercel, etc) que puedas haber encontrado en el camino.
-Revisa la [documentación de Vite](https://vitejs.dev/guide/static-deploy.html)
-para guiarte con eso.
-
-***
-
-## 8. Pistas, tips y Lecturas complementarias
-
-### Mobile first
-
-El concepto de [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-hace referencia a un proceso de diseño y desarrollo donde partimos de cómo se ve
-y cómo funciona la aplicación en un dispositivo móvil primero, y más adelante se
-ve como adaptar la aplicación a pantallas progresivamente grandes y
-características específicas del entorno desktop. Esto es en contraposición al
-modelo tradicional, donde primero se diseñaban los websites (o webapps) para
-desktop y después se trataba de _arrugar_ el diseño para que entre en pantallas
-más chicas. La clave acá es asegurarse de que desde el principio diseñan usando
-la vista _responsive_ de las herramientas de desarrollador (developer tools) del
-navegador. De esa forma, partimos de cómo se ve y comporta la aplicación en una
-pantalla y entorno móvil.
-
-### Múltiples vistas
-
-En proyectos anteriores nuestras aplicaciones habían estado compuestas de una
-sola _vista_ principal (una sóla _página_). En este proyecto se introduce la
-necesidad de tener que dividir nuestra interfaz en varias _vistas_ o _páginas_
-y ofrecer una manera de navegar entre estas vistas. Este problema se puede
-afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
-URL) y links tradicionales, manteniendo estado en memoria y rederizando
-condicionalmente (sin refrescar la página), [manipulando el historial del
-navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-con [`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
-En este proyecto te invitamos a explorar opciones y decidir una opción
-de implementación.
-
-### Escritura de datos
-
-Para almacenar los usuarios y publicaciones de la red social vamos a usar las funciones del archivo `src/lib/services.js`.
-
-En este archivo tenemos las siguientes funciones:
-
-* `login (email, password)`: Esta función devuelve true si existe un usuario con el correo y contraseña. Devuelve false si el usuario no existe o la contraseña es inválida.
-
-* `getLoggedInUser()`: Esta función devuelve el usuario conectado. Devuelve null si no hay ningún usuario registrado.
-
-* `logout()`: Esta función cierra la sesión del usuario.
-
-* `register(email, password)`: Esta función registra un nuevo usuario. Devuelve true si el usuario se ha registrado correctamente. Lanza un error si el usuario ya existe.
-
-* `getPosts()`: Esta función devuelve un array de posts. Cada elemento del arreglo tiene la siguiente estructura:
-
-  `{
-    id: string,
-    contenido: string,
-    email: string
-  }`
-
-* `createPost(content, email)`: Esta función crea un nuevo post y devuelve su id
-
-* `editPost(idPost, content)`: Esta función edita el contenido de una entrada. Lanzar un error si el post no existe.
-
-* `deletePost(idPost)`: Esta función elimina un post. Lanzar un error si el post no existe.
-
-Otras:
-
-* [Evento hashchange ](https://developer.mozilla.org/es/docs/Web/API/Window/hashchange_event)
-* [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
-* [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
-* [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-* [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
-* [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
+Usar GitHub Project para "VitalDish" optimizó la eficiencia y productividad.
