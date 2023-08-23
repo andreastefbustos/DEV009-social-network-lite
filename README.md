@@ -208,16 +208,12 @@ Con su respectivo feedback
 
 * [Figma-Desktop](https://www.figma.com/proto/C4ZQz1gC8XzDlheNG8OGiP/desktop?type=design&node-id=1-2&t=rsTzCCANzCPOGsRc-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2)
 
-<img width="500" src="./src/img/home-desktop.png">
-<img width="500" src="./src/img/login-desktop.png">
-<img width="500" src="./src/img/register-desktop.png">
+<img width="500" src="./src/img/home-desktop.png"> <img width="500" src="./src/img/login-desktop.png"> <img width="500" src="./src/img/register-desktop.png">
 
 * [Figma-Mobile](https://www.figma.com/proto/dCSQtBhl2q1pOESS8XgF14/Social-Network-VitalDish?type=design&node-id=15-170&t=3YwoEtraIU1lDoMD-0&scaling=scale-down&page-id=0%3A1)
 
 
-<img width="200" src="./src/img/home-mobile.png">
-<img width="200" src="./src/img/login-mobile.png">
-<img width="200" src="./src/img/register-mobile.png">
+<img width="200" src="./src/img/home-mobile.png"> <img width="200" src="./src/img/login-mobile.png"> <img width="200" src="./src/img/register-mobile.png">
 
 
 ## 7. Resultados de test de usuabilidad
