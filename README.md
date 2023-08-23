@@ -170,7 +170,7 @@ Se ha utilizado Git como sistema de control de versiones para mantener un regist
 * Se han realizado pruebas de usabilidad y se ha incorporado el feedback de los usuarios para mejorar la interfaz y experiencia de usuario.
 * La aplicación con la funcionalidad de inicio de sesión ha sido desplegada y se ha etiquetado la versión correspondiente con git tag.
 
-### 5.2 Historia de Usuario #1 - Muro/timeline
+### 5.2 Historia de Usuario #2 - Muro/timeline
 
 ***Como usuario*** de "VitalDish",
 ***Quiero*** poder crear un post, editar, eliminar y dar like a las recetas,
