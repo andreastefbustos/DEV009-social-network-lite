@@ -1,12 +1,15 @@
 import { register } from '../lib/index';
 import { showCustomAlert } from './showCustomAlert';
 import imgRegister from '../img/register.png';
+import appleImage from '../img/green-apple.png';
 
 // Función para mostrar la página de registro
 export const registerPage = (navigateTo) => {
   const registerForm = document.createElement('div');
+  const greenApple = `<img id="apple-mobile" src=${appleImage} alt="Apple">`;
   registerForm.innerHTML = `
-  <div id="register"}}>
+  <div id="register">
+    ${greenApple}
     <i class="close-register fa-solid fa-circle-xmark"></i>
     <img id="img-register" src=${imgRegister} alt="register">
     <form id="register-form" autocomplete="off">
@@ -31,8 +34,6 @@ export const registerPage = (navigateTo) => {
    </form>
 </div>
 `;
-  const registerDiv = registerForm.querySelector('#register');
-  registerDiv.style.backgroundImage = `url(${imgRegister})`;
 
   // Evento de envío para el formulario de registro
   registerForm.querySelector('#register-form').addEventListener('submit', (event) => {
