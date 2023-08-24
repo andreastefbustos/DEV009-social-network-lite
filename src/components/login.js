@@ -5,29 +5,27 @@ import imgLogin from '../img/login.png';
 export const userLogin = (navigateTo) => {
   // Muestra el formulario de inicio de sesión
   const loginForm = document.createElement('div');
+  loginForm.id = 'login-content';
   loginForm.innerHTML = `
-    <div id="login-content">
-      <img id="img-login" src=${imgLogin} alt="login">
-      <form id="login-form" autocomplete="off">
-        <h1 id="title-login">VitalDish</h1>
+    <form id="login-form" autocomplete="off">
+      <h1 id="title-login">VitalDish</h1>
 
-        <div class="email-container">
-            <p class="email-password">Email</p>
-            <input type="email" id="email" placeholder="example@gmail.com" required />
-        </div>
+      <div class="email-container">
+        <p class="email-password">Email</p>
+        <input type="email" id="email" placeholder="example@gmail.com" required />
+      </div>
 
-        <div class="password-container">
-            <p class="email-password">Password</p>
-            <input type="password" id="password" placeholder="*********" required />
-        </div>
+      <div class="password-container">
+        <p class="email-password">Password</p>
+        <input type="password" id="password" placeholder="*********" required />
+      </div>
 
-        <button type="submit">Login</button>
-        <p id="join">Do not have an account? <span class="highlight">Join now</span></p>
-      </form>
-  </div>
-`;
+      <button id="login-button" type="submit">Login</button>
+      <p id="joinPage">Do not have an account? <span id="join" class="highlight">Join now</span></p>
+    </form>
+    <img id="img-login" src=${imgLogin} alt="login">
+  `;
 
-  // Evento de envío para el formulario de inicio de sesión
   loginForm.querySelector('#login-form').addEventListener('submit', (event) => {
     event.preventDefault();
     const email = document.getElementById('email').value;
@@ -35,16 +33,12 @@ export const userLogin = (navigateTo) => {
 
     // Intenta iniciar sesión
     if (login(email, password)) {
-      // esto es para ver los usuarios que hicieron login
-      // const loggedInUser = getLoggedInUser();
-      // console.log('Logged in user:', loggedInUser);
       navigateTo('/');
     } else {
       showCustomAlert('Invalid login. Please register if you do not have an account.');
     }
   });
 
-  // Evento de click para el enlace Join now
   loginForm.querySelector('#join').addEventListener('click', (event) => {
     event.preventDefault();
     navigateTo('/register');

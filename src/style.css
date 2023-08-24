@@ -150,21 +150,25 @@ html, body {
 
 /* Estilos al login  */
 #login-content {
-  order: 1;
+  display: flex;
+  flex-direction: column; /* Para que los elementos se distribuyan verticalmente */
+  justify-content: space-between; /* Espacio entre el formulario y la imagen */
+  min-height: 100vh; /* Asegura que el contenedor tome todo el alto de la ventana */
+}
+
+#login-form {
+  flex: 1; /* Permite que el formulario ocupe el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 #title-login{
   color: #E88224;
   text-align: center;
-  margin: 30px 0px;
+  margin: 30px 0px 15px;
   font-size: 40px;
-}
-
-#login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* margin: 10px auto 0;  */
 }
 
 #login-form button {
@@ -187,28 +191,25 @@ html, body {
   padding: 9px;
   border: 0px solid #ccc;
   background-color: rgb(232, 240, 254);
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-#join {
-  text-align: center;
-  color: black;
+#joinPage {
   font-size: 20px;
   margin-top: 0; 
 }
 
-#join .highlight {
+#join {
   color: red; 
   font-weight: bold; 
   cursor: pointer;
 }
 
 #img-login {
-  position: absolute;
-  bottom: 0;
-  margin: 0 auto 0; 
   max-width: 100%; 
   border-radius: 0 30% 0 0;
-  order: 2;
+  margin-top: 20px;
 }
 
 /* Estilos al registro */
@@ -604,38 +605,25 @@ textarea {
 /* Estilos para Desktop*/
 @media screen and (min-width: 1024px) {
   #login-content {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;     
-    height: 100vh;
+    flex-direction: row; /* Cambia la dirección a fila para colocar elementos uno al lado del otro */
+    align-items: center; /* Centra verticalmente los elementos en su contenedor */
   }
 
   #img-login {
-    order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
-    position: static;
-    border-radius: 0;
-    max-width: 50%;
-    flex: 0 0 50%;
-    height: 100%;
+    order: 1;
+    width: 50%; /* Ocupa la mitad izquierda de la pantalla */
+    height: 100vh; /* Ocupa todo el alto de la pantalla */
+    object-fit: cover; /* Ajusta la imagen para que cubra el contenedor completamente */
+    border-radius: 0; /* Puedes eliminar el borde redondeado para pantallas de escritorio, o ajustarlo a tu preferencia */
+    margin-top: 0; /* Elimina el margen superior, ya que la imagen está a la izquierda */
   }
 
   #login-form {
-    flex: 0 0 50%;
-    order: 2; /* Cambia el orden para que el formulario se muestre a la derecha */
+    order: 2;
+    width: 50%; /* Ocupa la mitad derecha de la pantalla */
+    padding: 20px; /* Espaciado alrededor del formulario */
     box-sizing: border-box;
-    padding: 20px;
-  }
-
-  .email-container, .password-container {
-    margin-bottom: 15px;
-  }
-
-  button[type="submit"] {
-    margin-top: 20px;
-  }
-
-  .search-input {
-    width: 200px; 
+    justify-content: center; /* Centra el contenido del formulario verticalmente */
   }
 
   /* Estilos para el registro */
@@ -685,37 +673,24 @@ textarea {
   and (max-device-width: 1366px) 
   and (orientation: landscape) {
     #login-content {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;     
-      height: 100vh;
+      flex-direction: row; /* Cambia la dirección a fila para colocar elementos uno al lado del otro */
+      align-items: center; /* Centra verticalmente los elementos en su contenedor */
     }
   
     #img-login {
-      order: 1; /* Cambia el orden para que la imagen se muestre a la izquierda */
-      position: static;
-      border-radius: 0;
-      max-width: 50%;
-      flex: 0 0 50%;
-      height: 100%;
+      order: 1;
+      width: 50%; /* Ocupa la mitad izquierda de la pantalla */
+      height: 100vh; /* Ocupa todo el alto de la pantalla */
+      object-fit: cover; /* Ajusta la imagen para que cubra el contenedor completamente */
+      border-radius: 0; /* Puedes eliminar el borde redondeado para pantallas de escritorio, o ajustarlo a tu preferencia */
+      margin-top: 0; /* Elimina el margen superior, ya que la imagen está a la izquierda */
     }
   
     #login-form {
-      flex: 0 0 50%;
-      order: 2; /* Cambia el orden para que el formulario se muestre a la derecha */
+      order: 2;
+      width: 50%; /* Ocupa la mitad derecha de la pantalla */
+      padding: 20px; /* Espaciado alrededor del formulario */
       box-sizing: border-box;
-      padding: 20px;
-    }
-  
-    .email-container, .password-container {
-      margin-bottom: 15px;
-    }
-  
-    button[type="submit"] {
-      margin-top: 20px;
-    }
-
-    .search-input {
-      width: 200px; 
+      justify-content: center; /* Centra el contenido del formulario verticalmente */
     }
 }
