@@ -52,7 +52,6 @@ export const createMenu = () => {
   `;
 
   nav.append(iconMenu, titleHeader);
-  // document.body.appendChild(asideMenu);
 
   // Funcionalidad para mostrar el menu
   iconMenu.addEventListener('click', () => {
