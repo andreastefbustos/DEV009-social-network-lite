@@ -5,7 +5,7 @@ import imgLogin from '../img/login.png';
 export const userLogin = (navigateTo) => {
   // Muestra el formulario de inicio de sesión
   const loginForm = document.createElement('div');
-  loginForm.id = 'login-content';
+  loginForm.id = 'login';
   loginForm.innerHTML = `
     <form id="login-form" autocomplete="off">
       <h1 id="title-login">VitalDish</h1>

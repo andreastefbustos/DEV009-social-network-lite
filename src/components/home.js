@@ -6,6 +6,7 @@ import { createRecipeElement } from './recipesUI';
 
 export const home = (navigateTo) => {
   const homePage = document.createElement('div');
+  homePage.id = 'home';
 
   // Creando el header
   const header = document.createElement('header');

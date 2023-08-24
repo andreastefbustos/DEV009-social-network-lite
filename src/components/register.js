@@ -6,9 +6,9 @@ import appleImage from '../img/green-apple.png';
 // Función para mostrar la página de registro
 export const registerPage = (navigateTo) => {
   const registerForm = document.createElement('div');
+  registerForm.id = 'register';
   const greenApple = `<img id="apple-mobile" src=${appleImage} alt="Apple">`;
   registerForm.innerHTML = `
-  <div id="register">
     ${greenApple}
     <i class="close-register fa-solid fa-circle-xmark"></i>
     <img id="img-register" src=${imgRegister} alt="register">
@@ -31,9 +31,8 @@ export const registerPage = (navigateTo) => {
       </div>
       
       <button type="submit">Register</button>
-   </form>
-</div>
-`;
+    </form>
+  `;
 
   // Evento de envío para el formulario de registro
   registerForm.querySelector('#register-form').addEventListener('submit', (event) => {

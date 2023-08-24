@@ -149,7 +149,7 @@ html, body {
 }
 
 /* Estilos al login  */
-#login-content {
+#login {
   display: flex;
   flex-direction: column; /* Para que los elementos se distribuyan verticalmente */
   justify-content: space-between; /* Espacio entre el formulario y la imagen */
@@ -604,7 +604,7 @@ textarea {
 
 /* Estilos para Desktop*/
 @media screen and (min-width: 1024px) {
-  #login-content {
+  #login {
     flex-direction: row; /* Cambia la dirección a fila para colocar elementos uno al lado del otro */
     align-items: center; /* Centra verticalmente los elementos en su contenedor */
   }
@@ -672,7 +672,7 @@ textarea {
   and (min-device-width: 768px) 
   and (max-device-width: 1366px) 
   and (orientation: landscape) {
-    #login-content {
+    #login {
       flex-direction: row; /* Cambia la dirección a fila para colocar elementos uno al lado del otro */
       align-items: center; /* Centra verticalmente los elementos en su contenedor */
     }
