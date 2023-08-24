@@ -18,9 +18,13 @@ export const createMenu = () => {
   const nav = document.createElement('nav');
   nav.classList.add('menu');
 
-  const div1 = document.createElement('div');
-  div1.id = 'icon-menu';
-  div1.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  const iconMenu = document.createElement('div');
+  iconMenu.id = 'icon-menu';
+  iconMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+  const titleHeader = document.createElement('div');
+  titleHeader.classList.add('title-home');
+  titleHeader.innerHTML = 'VitalDish';
 
   const asideMenu = document.createElement('aside');
   asideMenu.classList.add('sidebar-menu');
@@ -47,70 +51,66 @@ export const createMenu = () => {
   </ul>
   `;
 
-  const div2 = document.createElement('div');
-  div2.classList.add('title-home');
-  div2.innerHTML = 'VitalDish';
-
-  nav.append(div1, div2);
-  document.body.appendChild(asideMenu);
+  nav.append(iconMenu, titleHeader);
+  // document.body.appendChild(asideMenu);
 
   // Funcionalidad para mostrar el menu
-  div1.addEventListener('click', () => {
+  iconMenu.addEventListener('click', () => {
     asideMenu.classList.toggle('open');
   });
 
   // Evento al icono de la x para ocultar el aside menu
-  const closeMenuAside = document.querySelector('.close');
+  const closeMenuAside = asideMenu.querySelector('.close');
   closeMenuAside.addEventListener('click', () => {
     asideMenu.classList.remove('open');
   });
 
   // Filtros por flavors
-  const categoryFlavorsSweet = document.querySelector('#sweet');
+  const categoryFlavorsSweet = asideMenu.querySelector('#sweet');
   categoryFlavorsSweet.addEventListener('click', () => {
     filterCategoryRecipe('flavors', 'Sweet');
     asideMenu.classList.remove('open');
   });
 
-  const categoryFlavorsSalty = document.querySelector('#salty');
+  const categoryFlavorsSalty = asideMenu.querySelector('#salty');
   categoryFlavorsSalty.addEventListener('click', () => {
     filterCategoryRecipe('flavors', 'Salty');
     asideMenu.classList.remove('open');
   });
 
-  const categoryFlavorsSweetSalty = document.querySelector('#sweet-salty');
+  const categoryFlavorsSweetSalty = asideMenu.querySelector('#sweet-salty');
   categoryFlavorsSweetSalty.addEventListener('click', () => {
     filterCategoryRecipe('flavors', 'Sweet&Salty');
     asideMenu.classList.remove('open');
   });
 
   // Filtros por meal time
-  const categoryMealTimeBreakfast = document.querySelector('#breakfast');
+  const categoryMealTimeBreakfast = asideMenu.querySelector('#breakfast');
   categoryMealTimeBreakfast.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Breakfast');
     asideMenu.classList.remove('open');
   });
 
-  const categoryMealTimeLunch = document.querySelector('#lunch');
+  const categoryMealTimeLunch = asideMenu.querySelector('#lunch');
   categoryMealTimeLunch.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Lunch');
     asideMenu.classList.remove('open');
   });
 
-  const categoryMealTimeDinner = document.querySelector('#dinner');
+  const categoryMealTimeDinner = asideMenu.querySelector('#dinner');
   categoryMealTimeDinner.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Dinner');
     asideMenu.classList.remove('open');
   });
 
-  const categoryMealTimeSnack = document.querySelector('#snack');
+  const categoryMealTimeSnack = asideMenu.querySelector('#snack');
   categoryMealTimeSnack.addEventListener('click', () => {
     filterCategoryRecipe('mealTime', 'Snack');
     asideMenu.classList.remove('open');
   });
 
   // Mostrar todas recetas
-  const viewAllRecipes = document.querySelector('#all');
+  const viewAllRecipes = asideMenu.querySelector('#all');
   viewAllRecipes.addEventListener('click', () => {
     const recipesContainer = document.getElementsByClassName('recipes-container')[0];
     while (recipesContainer.firstChild) {
