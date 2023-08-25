@@ -83,6 +83,7 @@ html, body {
   outline: none; 
   width: 150px; 
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: none; /* Asegura que el input esté oculto inicialmente. */
 }
 
 .search-input:hover {

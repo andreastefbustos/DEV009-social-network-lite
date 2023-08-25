@@ -19,30 +19,27 @@ export const createSearchBar = () => {
   const search = document.createElement('div');
   search.classList.add('search');
 
-  const div3 = document.createElement('div');
-  div3.classList.add('search-icon');
-  div3.innerHTML = '<i class="fa-solid fa-magnifying-glass">';
+  const iconSearch = document.createElement('div');
+  iconSearch.classList.add('search-icon');
+  iconSearch.innerHTML = '<i class="fa-solid fa-magnifying-glass">';
 
-  const input = document.createElement('input');
-  input.type = 'search';
-  input.id = 'search-input';
-  input.classList.add('search-input');
-  input.placeholder = 'Search...';
-
-  // Asegura que el input esté oculto inicialmente.
-  input.style.display = 'none';
+  const inputSearch = document.createElement('input');
+  inputSearch.type = 'search';
+  inputSearch.id = 'search-input';
+  inputSearch.classList.add('search-input');
+  inputSearch.placeholder = 'Search...';
 
   // Agrega el listener al ícono de la lupa
-  div3.addEventListener('click', () => {
-    if (input.style.display === 'none' || input.style.display === '') {
-      input.style.display = 'block';
-      input.focus(); // Opcional: pone el foco en el input cuando se muestra.
+  iconSearch.addEventListener('click', () => {
+    if (inputSearch.style.display === 'none' || inputSearch.style.display === '') {
+      inputSearch.style.display = 'block';
+      inputSearch.focus(); // Opcional: pone el foco en el input cuando se muestra.
     } else {
-      input.style.display = 'none';
+      inputSearch.style.display = 'none';
     }
   });
 
-  input.addEventListener('input', (event) => {
+  inputSearch.addEventListener('input', (event) => {
     const query = normalizeString(event.target.value);
     const filteredRecipes = recipes.filter(
       (recipe) => normalizeString(recipe.title).includes(query),
@@ -50,6 +47,6 @@ export const createSearchBar = () => {
     displayFilteredRecipes(filteredRecipes);
   });
 
-  search.append(div3, input);
+  search.append(iconSearch, inputSearch);
   return search;
 };

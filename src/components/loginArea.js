@@ -15,8 +15,8 @@ export const createLoginArea = (navigateTo) => {
   const login = document.createElement('div');
   login.classList.add('login');
 
-  const div4 = document.createElement('div');
-  div4.innerHTML = '<i class="fa-regular fa-user"></i>';
+  const iconLogin = document.createElement('div');
+  iconLogin.innerHTML = '<i class="fa-regular fa-user"></i>';
 
   const loginLink = document.createElement('a');
   loginLink.id = 'login-link';
@@ -34,6 +34,6 @@ export const createLoginArea = (navigateTo) => {
 
   loginLink.addEventListener('click', (event) => handleLoginClick(event, navigateTo));
 
-  login.append(div4, loginLink);
+  login.append(iconLogin, loginLink);
   return login;
 };
